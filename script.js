@@ -773,6 +773,8 @@ function setupLessonButtons() {
         });
 
     });
+
+    setupPractice();
 }
 
 
@@ -845,3 +847,481 @@ document.addEventListener(
 
     }
 );
+// =====================================================
+// 🎯 CATEGORY 1 — PRACTICE MODE
+// =====================================================
+
+const practiceQuestions = [
+
+    {
+        native: "مان خوش آهيان.",
+        options: [
+            "I am happy.",
+            "I was happy.",
+            "I have happy.",
+            "I will happy."
+        ],
+        answer: "I am happy."
+    },
+
+    {
+        native: "هو گهر ۾ آهي.",
+        options: [
+            "He was at home.",
+            "He is at home.",
+            "He has at home.",
+            "He will at home."
+        ],
+        answer: "He is at home."
+    },
+
+    {
+        native: "اهي تيار هئا.",
+        options: [
+            "They are ready.",
+            "They have ready.",
+            "They were ready.",
+            "They will ready."
+        ],
+        answer: "They were ready."
+    },
+
+    {
+        native: "مان تيار ٿيندس.",
+        options: [
+            "I am ready.",
+            "I was ready.",
+            "I had ready.",
+            "I will be ready."
+        ],
+        answer: "I will be ready."
+    },
+
+    {
+        native: "مون وٽ پئسا آهن.",
+        options: [
+            "I am money.",
+            "I have money.",
+            "I had money.",
+            "I will money."
+        ],
+        answer: "I have money."
+    },
+
+    {
+        native: "انهن وٽ ٿيلها هئا.",
+        options: [
+            "They have bags.",
+            "They are bags.",
+            "They had bags.",
+            "They will bags."
+        ],
+        answer: "They had bags."
+    },
+
+    {
+        native: "ميز تي هڪ ڪتاب آهي.",
+        options: [
+            "There is a book on the table.",
+            "There was a book on the table.",
+            "It has a book on the table.",
+            "There will book on the table."
+        ],
+        answer: "There is a book on the table."
+    },
+
+    {
+        native: "هڪ مسئلو هو.",
+        options: [
+            "There is a problem.",
+            "There was a problem.",
+            "There has a problem.",
+            "There will a problem."
+        ],
+        answer: "There was a problem."
+    },
+
+    {
+        native: "اڄ گرمي آهي.",
+        options: [
+            "It was hot today.",
+            "It has hot today.",
+            "It's hot today.",
+            "It will hot today."
+        ],
+        answer: "It's hot today."
+    },
+
+    {
+        native: "ڇا تون تيار آهين؟",
+        options: [
+            "Are you ready?",
+            "Were you ready?",
+            "Do you ready?",
+            "Have you ready?"
+        ],
+        answer: "Are you ready?"
+    },
+
+    {
+        native: "ڇا هوءَ گهر ۾ آهي؟",
+        options: [
+            "Does she at home?",
+            "Is she at home?",
+            "Has she at home?",
+            "Was she at home?"
+        ],
+        answer: "Is she at home?"
+    },
+
+    {
+        native: "مان ٿڪل ناهيان.",
+        options: [
+            "I am not tired.",
+            "I was not tired.",
+            "I have not tired.",
+            "I will not tired."
+        ],
+        answer: "I am not tired."
+    }
+
+];
+
+
+let practiceIndex = 0;
+let practiceScore = 0;
+let practiceAnswered = false;
+
+
+// =====================================================
+// CREATE PRACTICE AREA
+// =====================================================
+
+function setupPractice() {
+
+    const lesson =
+        document.querySelector(".lesson");
+
+    if (!lesson) {
+        return;
+    }
+
+    const oldPractice =
+        document.getElementById("practice-area");
+
+    if (oldPractice) {
+        oldPractice.remove();
+    }
+
+    const practice =
+        document.createElement("div");
+
+    practice.id = "practice-area";
+
+    practice.innerHTML = `
+
+        <div style="
+            margin-top:30px;
+            padding:22px 15px;
+            background:#173f35;
+            color:white;
+            border-radius:18px;
+            text-align:center;
+        ">
+
+            <h2 style="
+                margin-bottom:10px;
+                font-size:25px;
+            ">
+                🎯 Practice Mode
+            </h2>
+
+            <p style="
+                font-size:16px;
+                margin-bottom:18px;
+            ">
+                Choose the correct English sentence.
+            </p>
+
+            <div id="practice-score"
+                 style="
+                    font-size:18px;
+                    font-weight:bold;
+                    margin-bottom:18px;
+                 ">
+                Score: 0 / ${practiceQuestions.length}
+            </div>
+
+            <div id="practice-question"
+                 style="
+                    background:white;
+                    color:#173f35;
+                    padding:20px 12px;
+                    border-radius:15px;
+                 ">
+            </div>
+
+            <div id="practice-result"
+                 style="
+                    margin-top:15px;
+                    min-height:28px;
+                    font-size:18px;
+                    font-weight:bold;
+                 ">
+            </div>
+
+        </div>
+
+    `;
+
+    const backButton =
+        lesson.querySelector(".lesson-back");
+
+    if (backButton) {
+
+        lesson.insertBefore(
+            practice,
+            backButton
+        );
+
+    } else {
+
+        lesson.appendChild(practice);
+
+    }
+
+    practiceIndex = 0;
+    practiceScore = 0;
+    practiceAnswered = false;
+
+    showPracticeQuestion();
+}
+
+
+// =====================================================
+// SHOW QUESTION
+// =====================================================
+
+function showPracticeQuestion() {
+
+    const questionBox =
+        document.getElementById("practice-question");
+
+    const resultBox =
+        document.getElementById("practice-result");
+
+    const scoreBox =
+        document.getElementById("practice-score");
+
+    if (!questionBox) {
+        return;
+    }
+
+    if (practiceIndex >= practiceQuestions.length) {
+
+        questionBox.innerHTML = `
+
+            <h3 style="
+                font-size:24px;
+                margin-bottom:15px;
+            ">
+                🎉 Practice Complete!
+            </h3>
+
+            <p style="
+                font-size:20px;
+                margin-bottom:20px;
+            ">
+                Your Score:
+                <strong>
+                    ${practiceScore} / ${practiceQuestions.length}
+                </strong>
+            </p>
+
+            <button
+                onclick="restartPractice()"
+                style="
+                    width:100%;
+                    padding:15px;
+                    border:none;
+                    border-radius:12px;
+                    background:#173f35;
+                    color:white;
+                    font-size:18px;
+                    font-weight:bold;
+                    cursor:pointer;
+                ">
+                🔄 PRACTICE AGAIN
+            </button>
+
+        `;
+
+        resultBox.innerHTML =
+            "🌟 Well done! Keep practicing.";
+
+        return;
+    }
+
+
+    const question =
+        practiceQuestions[practiceIndex];
+
+    practiceAnswered = false;
+
+    scoreBox.textContent =
+        "Score: " +
+        practiceScore +
+        " / " +
+        practiceQuestions.length;
+
+
+    let optionsHTML = "";
+
+
+    question.options.forEach(function (option, index) {
+
+        optionsHTML += `
+
+            <button
+                class="practice-option"
+                onclick="checkPracticeAnswer(${index})"
+                style="
+                    display:block;
+                    width:100%;
+                    margin:10px 0;
+                    padding:15px 10px;
+                    border:2px solid #173f35;
+                    border-radius:12px;
+                    background:#f5f8f7;
+                    color:#173f35;
+                    font-size:18px;
+                    font-weight:bold;
+                    cursor:pointer;
+                ">
+
+                ${option}
+
+            </button>
+
+        `;
+
+    });
+
+
+    questionBox.innerHTML = `
+
+        <div style="
+            font-size:14px;
+            color:#60716c;
+            margin-bottom:8px;
+        ">
+            Question ${practiceIndex + 1}
+            of ${practiceQuestions.length}
+        </div>
+
+        <div style="
+            font-size:23px;
+            font-weight:bold;
+            margin-bottom:20px;
+            line-height:1.6;
+        ">
+            ${question.native}
+        </div>
+
+        <div>
+            ${optionsHTML}
+        </div>
+
+    `;
+
+
+    resultBox.innerHTML = "";
+}
+
+
+// =====================================================
+// CHECK ANSWER
+// =====================================================
+
+function checkPracticeAnswer(selectedIndex) {
+
+    if (practiceAnswered) {
+        return;
+    }
+
+    const question =
+        practiceQuestions[practiceIndex];
+
+    const selected =
+        question.options[selectedIndex];
+
+    const resultBox =
+        document.getElementById("practice-result");
+
+    if (selected === question.answer) {
+
+        practiceScore++;
+
+        resultBox.innerHTML =
+            "✅ Correct! Excellent!";
+
+        resultBox.style.color =
+            "#8ff0a4";
+
+        practiceAnswered = true;
+
+    } else {
+
+        resultBox.innerHTML =
+            "❌ Try again!";
+
+        resultBox.style.color =
+            "#ffb3b3";
+
+        return;
+    }
+
+
+    const buttons =
+        document.querySelectorAll(".practice-option");
+
+    buttons.forEach(function (button) {
+
+        button.disabled = true;
+
+        button.style.opacity = "0.65";
+
+    });
+
+
+    setTimeout(function () {
+
+        practiceIndex++;
+
+        showPracticeQuestion();
+
+    }, 900);
+}
+
+
+// =====================================================
+// RESTART PRACTICE
+// =====================================================
+
+function restartPractice() {
+
+    practiceIndex = 0;
+
+    practiceScore = 0;
+
+    practiceAnswered = false;
+
+    showPracticeQuestion();
+
+    window.scrollTo({
+        top:
+            document.getElementById("practice-area")
+                .offsetTop - 20,
+        behavior: "smooth"
+    });
+}
