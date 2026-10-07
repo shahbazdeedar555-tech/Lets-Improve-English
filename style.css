@@ -1,0 +1,305 @@
+
+/* ==========================================
+   📚 LET'S IMPROVE ENGLISH
+   MAIN APP STYLE
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef5f2;
+    color: #173f35;
+    text-align: center;
+}
+
+
+/* ==========================================
+   APP HEADER
+========================================== */
+
+.app-header {
+    background: #173f35;
+    color: white;
+    padding: 28px 15px 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.app-header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.app-header p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   MAIN MENU
+========================================== */
+
+.main-menu {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 25px 15px 30px;
+}
+
+.main-menu h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #173f35;
+}
+
+
+/* ==========================================
+   CATEGORY BUTTONS
+========================================== */
+
+.category-btn {
+    width: 100%;
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 14px;
+    padding: 12px 16px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: white;
+    color: #173f35;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.category-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.16);
+}
+
+.category-btn:active {
+    transform: scale(0.98);
+}
+
+
+/* ==========================================
+   CATEGORY NUMBER
+========================================== */
+
+.number {
+    min-width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 15px;
+
+    border-radius: 50%;
+
+    background: #173f35;
+    color: white;
+
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   CATEGORY TEXT
+========================================== */
+
+.category-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.3;
+}
+
+.category-text strong {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.category-text small {
+    margin-top: 5px;
+
+    font-size: 14px;
+    color: #5b6d67;
+}
+
+
+/* ==========================================
+   CATEGORY SCREEN
+========================================== */
+
+.category-screen {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+    padding: 25px 15px 40px;
+}
+
+.category-screen h2 {
+    margin-top: 25px;
+
+    font-size: 28px;
+    color: #173f35;
+}
+
+.category-screen p {
+    margin-top: 15px;
+
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.back-btn {
+    border: none;
+    border-radius: 12px;
+
+    padding: 12px 22px;
+
+    background: #173f35;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.back-btn:active {
+    transform: scale(0.96);
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    padding: 20px 15px 30px;
+
+    color: #60716c;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   MOBILE SCREEN
+========================================== */
+
+@media (max-width: 600px) {
+
+    .app-header {
+        padding: 24px 12px 20px;
+    }
+
+    .app-header h1 {
+        font-size: 25px;
+    }
+
+    .app-header p {
+        font-size: 14px;
+    }
+
+    .main-menu {
+        padding: 22px 12px 25px;
+    }
+
+    .main-menu h2 {
+        font-size: 22px;
+        margin-bottom: 17px;
+    }
+
+    .category-btn {
+        min-height: 78px;
+        padding: 10px 12px;
+        border-radius: 16px;
+    }
+
+    .number {
+        min-width: 46px;
+        height: 46px;
+
+        margin-right: 12px;
+
+        font-size: 20px;
+    }
+
+    .category-text strong {
+        font-size: 18px;
+    }
+
+    .category-text small {
+        font-size: 12px;
+    }
+
+}
+
+
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
+
+@media (max-width: 360px) {
+
+    .app-header h1 {
+        font-size: 22px;
+    }
+
+    .category-btn {
+        min-height: 72px;
+    }
+
+    .number {
+        min-width: 42px;
+        height: 42px;
+
+        font-size: 18px;
+    }
+
+    .category-text strong {
+        font-size: 16px;
+    }
+
+    .category-text small {
+        font-size: 11px;
+    }
+
+}
