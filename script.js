@@ -548,19 +548,19 @@ function buildPracticeArea(title, questions, prefix) {
 
                 <button
                     class="practice-option"
-                    onclick="practiceAnswer(this, true, '${prefix}-${index}')">
+                    onclick="practiceAnswer(this, '${question.options[0] === question.correct}', '${prefix}-${index}')">
                     ${question.options[0]}
                 </button>
 
                 <button
                     class="practice-option"
-                    onclick="practiceAnswer(this, false, '${prefix}-${index}')">
+                    onclick="practiceAnswer(this, '${question.options[1] === question.correct}', '${prefix}-${index}')">
                     ${question.options[1]}
                 </button>
 
                 <button
                     class="practice-option"
-                    onclick="practiceAnswer(this, false, '${prefix}-${index}')">
+                    onclick="practiceAnswer(this, '${question.options[2] === question.correct}', '${prefix}-${index}')">
                     ${question.options[2]}
                 </button>
 
@@ -840,28 +840,28 @@ function buildCategory1() {
 
 
             <!-- =========================================
-                 IMPORTANT
+                 IMPORTANT — SINDHI
             ========================================== -->
 
             <div class="important">
 
-                <h3>⭐ Important</h3>
+                <h3>⭐ اهم</h3>
 
                 <p>
-                    Not every sentence describes an action.
+                    هر جملو ڪنهن عمل (Action) کي ظاهر نٿو ڪري.
                 </p>
 
                 <p>
-                    Some sentences simply tell us a
-                    state, condition, situation, identity,
-                    possession or existence.
+                    ڪجهه جملا صرف اسان کي
+                    حالت، ڪيفيت، صورتحال، سڃاڻپ،
+                    ملڪيت يا موجودگي بابت ٻڌائن ٿا.
                 </p>
 
             </div>
 
 
             <!-- =========================================
-                 15 SINDHI PRACTICE SENTENCES
+                 PRACTICE — SINDHI
             ========================================== -->
 
             ${buildPracticeArea(
@@ -1217,7 +1217,7 @@ function buildCategory2() {
                 ${exampleBox(
                     "Will I be playing cricket?",
                     "ڇا مان ڪرڪيٽ کيڏي رهيو هوندس؟",
-                    "کیا میں کرکٹ کھیل رہا ہوں گا؟"
+                    "کیا مان کرکٹ کھیل رہا ہوں گا؟"
                 )}
 
 
@@ -1319,7 +1319,8 @@ function buildCategory2() {
 
 function practiceAnswer(button, correct, questionId) {
 
-    const questionBox = button.closest(".practice-question");
+    const questionBox =
+        button.closest(".practice-question");
 
     const feedback =
         document.getElementById(
@@ -1341,7 +1342,7 @@ function practiceAnswer(button, correct, questionId) {
     });
 
 
-    if (correct) {
+    if (correct === true || correct === "true") {
 
         feedback.innerHTML =
             "✅ صحيح! تمام سٺو.";
