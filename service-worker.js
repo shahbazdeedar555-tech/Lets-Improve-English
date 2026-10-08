@@ -1,9 +1,10 @@
+
 // ======================================================
 // 📚 LET'S IMPROVE ENGLISH
 // OFFLINE SERVICE WORKER
 // ======================================================
 
-const CACHE_NAME = "lets-improve-english-v3";
+const CACHE_NAME = "lets-improve-english-v4";
 
 const FILES_TO_CACHE = [
     "./",
@@ -70,21 +71,35 @@ self.addEventListener("activate", event => {
 
 // ======================================================
 // FETCH
+// NETWORK FIRST — CACHE FALLBACK
 // ======================================================
 
 self.addEventListener("fetch", event => {
 
     event.respondWith(
 
-        caches.match(event.request)
+        fetch(event.request)
 
-            .then(cachedResponse => {
+            .then(networkResponse => {
 
-                if (cachedResponse) {
-                    return cachedResponse;
+                if (networkResponse && networkResponse.ok) {
+
+                    const responseClone = networkResponse.clone();
+
+                    caches.open(CACHE_NAME)
+                        .then(cache => {
+                            cache.put(event.request, responseClone);
+                        });
+
                 }
 
-                return fetch(event.request);
+                return networkResponse;
+
+            })
+
+            .catch(() => {
+
+                return caches.match(event.request);
 
             })
 
