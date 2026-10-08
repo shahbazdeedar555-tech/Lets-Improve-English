@@ -1622,7 +1622,666 @@ function buildCategory2() {
         </div>
     `;
 }
+// ======================================================
+// CATEGORY 3
+// SYNONYMS & ANTONYMS
+// 30 USEFUL VOCABULARY WORDS
+// ======================================================
 
+function buildCategory3() {
+
+    const words = [
+
+        {
+            word: "Happy",
+            synonym: "Glad",
+            antonym: "Sad",
+            sindhi: "خوش",
+            urdu: "خوش"
+        },
+
+        {
+            word: "Big",
+            synonym: "Large",
+            antonym: "Small",
+            sindhi: "وڏو",
+            urdu: "بڑا"
+        },
+
+        {
+            word: "Easy",
+            synonym: "Simple",
+            antonym: "Difficult",
+            sindhi: "آسان",
+            urdu: "آسان"
+        },
+
+        {
+            word: "Fast",
+            synonym: "Quick",
+            antonym: "Slow",
+            sindhi: "تيز",
+            urdu: "تیز"
+        },
+
+        {
+            word: "Good",
+            synonym: "Nice",
+            antonym: "Bad",
+            sindhi: "سٺو",
+            urdu: "اچھا"
+        },
+
+        {
+            word: "Beautiful",
+            synonym: "Pretty",
+            antonym: "Ugly",
+            sindhi: "سهڻو",
+            urdu: "خوبصورت"
+        },
+
+        {
+            word: "Brave",
+            synonym: "Courageous",
+            antonym: "Cowardly",
+            sindhi: "بهادر",
+            urdu: "بہادر"
+        },
+
+        {
+            word: "Strong",
+            synonym: "Powerful",
+            antonym: "Weak",
+            sindhi: "طاقتور",
+            urdu: "طاقتور"
+        },
+
+        {
+            word: "Rich",
+            synonym: "Wealthy",
+            antonym: "Poor",
+            sindhi: "امير",
+            urdu: "امیر"
+        },
+
+        {
+            word: "Smart",
+            synonym: "Clever",
+            antonym: "Foolish",
+            sindhi: "هوشيار",
+            urdu: "ہوشیار"
+        },
+
+        {
+            word: "Angry",
+            synonym: "Furious",
+            antonym: "Calm",
+            sindhi: "ڪاوڙيل",
+            urdu: "غصے میں"
+        },
+
+        {
+            word: "Quiet",
+            synonym: "Silent",
+            antonym: "Noisy",
+            sindhi: "ماٺيڻو",
+            urdu: "خاموش"
+        },
+
+        {
+            word: "Old",
+            synonym: "Aged",
+            antonym: "Young",
+            sindhi: "پراڻو / پوڙهو",
+            urdu: "پرانا / بوڑھا"
+        },
+
+        {
+            word: "Hot",
+            synonym: "Warm",
+            antonym: "Cold",
+            sindhi: "گرم",
+            urdu: "گرم"
+        },
+
+        {
+            word: "Clean",
+            synonym: "Tidy",
+            antonym: "Dirty",
+            sindhi: "صاف",
+            urdu: "صاف"
+        },
+
+        {
+            word: "Begin",
+            synonym: "Start",
+            antonym: "End",
+            sindhi: "شروع ڪرڻ",
+            urdu: "شروع کرنا"
+        },
+
+        {
+            word: "Buy",
+            synonym: "Purchase",
+            antonym: "Sell",
+            sindhi: "خريد ڪرڻ",
+            urdu: "خریدنا"
+        },
+
+        {
+            word: "Help",
+            synonym: "Assist",
+            antonym: "Hinder",
+            sindhi: "مدد ڪرڻ",
+            urdu: "مدد کرنا"
+        },
+
+        {
+            word: "Love",
+            synonym: "Adore",
+            antonym: "Hate",
+            sindhi: "پيار ڪرڻ",
+            urdu: "محبت کرنا"
+        },
+
+        {
+            word: "Open",
+            synonym: "Uncover",
+            antonym: "Close",
+            sindhi: "کولڻ",
+            urdu: "کھولنا"
+        },
+
+        {
+            word: "Remember",
+            synonym: "Recall",
+            antonym: "Forget",
+            sindhi: "ياد رکڻ",
+            urdu: "یاد رکھنا"
+        },
+
+        {
+            word: "Win",
+            synonym: "Succeed",
+            antonym: "Lose",
+            sindhi: "کٽڻ",
+            urdu: "جیتنا"
+        },
+
+        {
+            word: "Accept",
+            synonym: "Approve",
+            antonym: "Reject",
+            sindhi: "قبول ڪرڻ",
+            urdu: "قبول کرنا"
+        },
+
+        {
+            word: "True",
+            synonym: "Correct",
+            antonym: "False",
+            sindhi: "سچو",
+            urdu: "سچا"
+        },
+
+        {
+            word: "Near",
+            synonym: "Close",
+            antonym: "Far",
+            sindhi: "ويجهو",
+            urdu: "قریب"
+        },
+
+        {
+            word: "Always",
+            synonym: "Constantly",
+            antonym: "Never",
+            sindhi: "هميشه",
+            urdu: "ہمیشہ"
+        },
+
+        {
+            word: "Laugh",
+            synonym: "Giggle",
+            antonym: "Cry",
+            sindhi: "کلڻ",
+            urdu: "ہنسنا"
+        },
+
+        {
+            word: "Arrive",
+            synonym: "Reach",
+            antonym: "Leave",
+            sindhi: "پهچڻ",
+            urdu: "پہنچنا"
+        },
+
+        {
+            word: "Full",
+            synonym: "Filled",
+            antonym: "Empty",
+            sindhi: "ڀريل",
+            urdu: "بھرا ہوا"
+        },
+
+        {
+            word: "Safe",
+            synonym: "Secure",
+            antonym: "Dangerous",
+            sindhi: "محفوظ",
+            urdu: "محفوظ"
+        }
+
+    ];
+
+
+    // ==================================================
+    // LESSON
+    // ==================================================
+
+    let html = `
+
+        <div class="lesson">
+
+            <h2>
+                3. Synonyms & Antonyms
+            </h2>
+
+            <p class="lesson-intro">
+                🌱 Improve Your Vocabulary
+            </p>
+
+
+            <div class="important">
+
+                <h3>
+                    ⭐ What is a Synonym?
+                </h3>
+
+                <p>
+                    A synonym is a word with the same or
+                    nearly the same meaning as another word.
+                </p>
+
+                <p>
+                    Example:
+                    <strong>Happy → Glad</strong>
+                </p>
+
+            </div>
+
+
+            <div class="important">
+
+                <h3>
+                    ⭐ What is an Antonym?
+                </h3>
+
+                <p>
+                    An antonym is a word with the opposite
+                    meaning of another word.
+                </p>
+
+                <p>
+                    Example:
+                    <strong>Happy → Sad</strong>
+                </p>
+
+            </div>
+
+
+            <h2>
+                📚 30 Useful Words
+            </h2>
+
+    `;
+
+
+    // ==================================================
+    // VOCABULARY WORDS
+    // ==================================================
+
+    words.forEach((item, index) => {
+
+        html += `
+
+            <div class="lesson-card">
+
+                <h3>
+
+                    ${index + 1}.
+                    
+                    <span style="
+                        font-size: 30px;
+                        font-weight: 900;
+                    ">
+                        ${item.word}
+                    </span>
+
+                </h3>
+
+
+                <div style="
+                    font-size: 22px;
+                    font-weight: 800;
+                    margin: 12px 0;
+                ">
+
+                    🟢 Synonym:
+
+                    <strong>
+                        ${item.synonym}
+                    </strong>
+
+                </div>
+
+
+                <div style="
+                    font-size: 22px;
+                    font-weight: 800;
+                    margin: 12px 0;
+                ">
+
+                    🔴 Antonym:
+
+                    <strong>
+                        ${item.antonym}
+                    </strong>
+
+                </div>
+
+
+                <div style="
+                    font-size: 21px;
+                    font-weight: 700;
+                    margin: 12px 0;
+                ">
+
+                    سنڌي:
+                    ${item.sindhi}
+
+                </div>
+
+
+                <div style="
+                    font-size: 21px;
+                    font-weight: 700;
+                    margin: 12px 0;
+                ">
+
+                    اردو:
+                    ${item.urdu}
+
+                </div>
+
+
+                <button
+                    class="listen-btn"
+                    data-text="${item.word}">
+
+                    🔊 Listen
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    // ==================================================
+    // PRACTICE
+    // ==================================================
+
+    html += `
+
+        <div class="important">
+
+            <h2>
+                🧠 Vocabulary Practice
+            </h2>
+
+            <p>
+                Choose the correct synonym or antonym.
+            </p>
+
+        </div>
+
+    `;
+
+
+    // ==================================================
+    // 30 QUESTIONS
+    // ==================================================
+
+    words.forEach((item, index) => {
+
+        const isSynonym = index % 2 === 0;
+
+        const correctAnswer =
+            isSynonym
+                ? item.synonym
+                : item.antonym;
+
+
+        let options;
+
+
+        if (isSynonym) {
+
+            options = [
+                item.synonym,
+                item.antonym,
+                item.word
+            ];
+
+        } else {
+
+            options = [
+                item.antonym,
+                item.synonym,
+                item.word
+            ];
+
+        }
+
+
+        // Shuffle the answers
+        options.sort(() => Math.random() - 0.5);
+
+
+        html += `
+
+            <div class="practice-question">
+
+                <p>
+                    <strong>
+                        ${index + 1}.
+                    </strong>
+
+                    Choose the
+                    <strong>
+                        ${isSynonym ? "synonym" : "antonym"}
+                    </strong>
+                    of:
+
+                    <strong style="
+                        font-size: 25px;
+                    ">
+                        ${item.word}
+                    </strong>
+                </p>
+
+
+                <button
+                    class="practice-option"
+                    onclick="vocabularyAnswer(
+                        this,
+                        '${options[0]}',
+                        '${correctAnswer}'
+                    )">
+
+                    ${options[0]}
+
+                </button>
+
+
+                <button
+                    class="practice-option"
+                    onclick="vocabularyAnswer(
+                        this,
+                        '${options[1]}',
+                        '${correctAnswer}'
+                    )">
+
+                    ${options[1]}
+
+                </button>
+
+
+                <button
+                    class="practice-option"
+                    onclick="vocabularyAnswer(
+                        this,
+                        '${options[2]}',
+                        '${correctAnswer}'
+                    )">
+
+                    ${options[2]}
+
+                </button>
+
+
+                <div class="practice-feedback">
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    // ==================================================
+    // REMEMBER
+    // ==================================================
+
+    html += `
+
+            <div class="important">
+
+                <h3>
+                    ⭐ Remember
+                </h3>
+
+                <p>
+                    <strong>
+                        Synonym
+                    </strong>
+                    = Similar meaning
+                </p>
+
+                <p>
+                    <strong>
+                        Antonym
+                    </strong>
+                    = Opposite meaning
+                </p>
+
+                <p>
+                    Learn words together:
+                </p>
+
+                <p>
+                    <strong>
+                        Word + Synonym + Antonym
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <button
+                class="lesson-back"
+                onclick="backToCategories()">
+
+                ← BACK TO CATEGORIES
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    return html;
+}
+
+
+// ======================================================
+// CATEGORY 3 — PRACTICE ANSWER
+// ======================================================
+
+function vocabularyAnswer(button, selected, correct) {
+
+    const question =
+        button.closest(".practice-question");
+
+    const feedback =
+        question.querySelector(".practice-feedback");
+
+    const options =
+        question.querySelectorAll(".practice-option");
+
+
+    // Disable all options
+    options.forEach(option => {
+
+        option.disabled = true;
+
+    });
+
+
+    // Correct answer
+    if (selected === correct) {
+
+        feedback.innerHTML =
+            "✅ Correct! Well done!";
+
+        button.innerHTML =
+            "✅ " + selected;
+
+    }
+
+
+    // Wrong answer
+    else {
+
+        feedback.innerHTML =
+            "❌ Wrong. Correct answer: " + correct;
+
+        button.innerHTML =
+            "❌ " + selected;
+
+
+        // Show the correct answer
+        options.forEach(option => {
+
+            if (
+                option.textContent.trim() === correct
+            ) {
+
+                option.innerHTML =
+                    "✅ " + correct;
+
+            }
+
+        });
+
+    }
+
+}
 
 // ======================================================
 // PRACTICE ANSWER
