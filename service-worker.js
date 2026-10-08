@@ -3,7 +3,7 @@
 // OFFLINE SERVICE WORKER
 // ======================================================
 
-const CACHE_NAME = "lets-improve-english-v1";
+const CACHE_NAME = "lets-improve-english-v2";
 
 const FILES_TO_CACHE = [
     "./",
