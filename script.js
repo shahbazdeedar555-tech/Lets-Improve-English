@@ -1,49 +1,51 @@
 
-// =====================================================
-// 📚 LET'S IMPROVE ENGLISH
-// CATEGORY SYSTEM + CATEGORY 1
-// SIMPLE SENTENCES — NO ACTION
-// =====================================================
+/* =========================================================
+   📚 LET'S IMPROVE ENGLISH
+   COMPLETE OFFLINE SCRIPT
+   CATEGORY 1 + CATEGORY 2
+========================================================= */
 
 
-// =====================================================
-// MAIN CATEGORIES
-// =====================================================
+/* =========================================================
+   CATEGORY DATA
+========================================================= */
 
 const categories = {
 
     1: {
-        title: "1. Simple Sentences — No Action"
+        title: "1. Simple Sentences — No Action",
+        message:
+            "Learn sentences that express state, condition, situation, existence, possession and other non-action meanings."
     },
 
     2: {
         title: "2. Tenses",
         message:
-            "Learn Present, Past and Future tenses through practical sentences."
+            "Learn Present, Past and Future through four sentence forms: Affirmative, Negative, Interrogative and Negative Interrogative."
     },
 
     3: {
         title: "3. Synonyms & Antonyms",
         message:
-            "Improve your vocabulary with synonyms and antonyms."
+            "Improve your vocabulary with words of similar and opposite meanings."
     },
 
     4: {
         title: "4. Sentence Patterns",
         message:
-            "Learn useful sentence structures and how English sentences are built."
+            "Learn how English sentences are built through simple and practical patterns."
     },
 
     5: {
         title: "5. Daily-Use Sentences",
         message:
-            "Learn English sentences used in everyday life."
+            "Learn useful English sentences for everyday communication."
     },
 
     6: {
         title: "6. Simple Modals",
         message:
-            "Learn can, could, may, might, must, should, will and other useful modals."
+            "Learn Can, Could, May, Must and Should through practical examples."
     },
 
     7: {
@@ -51,66 +53,58 @@ const categories = {
         message:
             "Listen, speak and improve your English pronunciation."
     }
+
 };
 
 
-// =====================================================
-// OPEN CATEGORY
-// =====================================================
+/* =========================================================
+   OPEN CATEGORY
+========================================================= */
 
 function openCategory(categoryNumber) {
 
-    const category = categories[categoryNumber];
+    const mainMenu = document.querySelector(".main-menu");
+    const categoryScreen = document.getElementById("category-screen");
+    const title = document.getElementById("category-title");
+    const message = document.getElementById("category-message");
 
-    if (!category) {
+    if (!mainMenu || !categoryScreen) {
         return;
     }
 
-    const mainMenu = document.querySelector(".main-menu");
-
     mainMenu.style.display = "none";
-
-    const categoryScreen =
-        document.getElementById("category-screen");
-
     categoryScreen.style.display = "block";
-
-    const title =
-        document.getElementById("category-title");
-
-    const message =
-        document.getElementById("category-message");
-
-
-    // ==========================================
-    // CATEGORY 1
-    // ==========================================
 
     if (categoryNumber === 1) {
 
-        title.textContent =
-            "1. Simple Sentences — No Action";
+        categoryScreen.innerHTML = buildCategory1();
 
-        message.innerHTML = buildCategory1();
+        setupLessonButtons();
+        setupPractice();
+
+    }
+
+    else if (categoryNumber === 2) {
+
+        categoryScreen.innerHTML = buildCategory2();
 
         setupLessonButtons();
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-        return;
     }
 
+    else {
 
-    // ==========================================
-    // OTHER CATEGORIES
-    // ==========================================
+        const category = categories[categoryNumber];
 
-    title.textContent = category.title;
+        title.textContent = category
+            ? category.title
+            : "Category";
 
-    message.textContent = category.message;
+        message.textContent = category
+            ? category.message
+            : "This category is coming soon.";
+
+    }
 
     window.scrollTo({
         top: 0,
@@ -119,9 +113,10 @@ function openCategory(categoryNumber) {
 }
 
 
-// =====================================================
-// CATEGORY 1 CONTENT
-// =====================================================
+/* =========================================================
+   CATEGORY 1
+   SIMPLE SENTENCES — NO ACTION
+========================================================= */
 
 function buildCategory1() {
 
@@ -129,23 +124,31 @@ function buildCategory1() {
 
         <div class="lesson">
 
+            <button class="back-btn" onclick="goHome()">
+                ← BACK
+            </button>
+
+            <h2>
+                1. Simple Sentences — No Action
+            </h2>
+
             <div class="lesson-intro">
 
-                <h3>🌱 No Action — Just State, Condition or Situation</h3>
+                <p>
+                    🌱 <strong>No Action — Just State, Condition or Situation</strong>
+                </p>
 
                 <p>
-                    A simple sentence can tell us what someone or
-                    something <strong>is</strong>, <strong>was</strong>,
-                    <strong>will be</strong>, <strong>has</strong>,
-                    or what <strong>exists</strong>.
+                    A simple sentence can tell us what someone or something
+                    is, was, will be, has, or what exists.
                 </p>
 
             </div>
 
 
-            <!-- ======================================
-                 BE PATTERN
-            ======================================= -->
+            <!-- =========================================
+                 PATTERN 1 — BE
+            ========================================== -->
 
             <div class="lesson-card">
 
@@ -155,590 +158,1023 @@ function buildCategory1() {
                     Subject + is / am / are + Complement
                 </div>
 
-                <div class="example">
+                <h3>Present</h3>
 
-                    <p><strong>I am happy.</strong></p>
+                ${example(
+                    "I am happy.",
+                    "مان خوش آهيان.",
+                    "میں خوش ہوں."
+                )}
 
-                    <p>مان خوش آهيان.</p>
+                ${example(
+                    "She is a teacher.",
+                    "هوءَ استاد آهي.",
+                    "وہ ایک استاد ہے."
+                )}
 
-                    <p>میں خوش ہوں.</p>
+                ${example(
+                    "They are ready.",
+                    "اهي تيار آهن.",
+                    "وہ تیار ہیں."
+                )}
 
-                    <button class="listen-btn"
-                            data-text="I am happy.">
-                        🔊 Listen
-                    </button>
+                <h3>Past</h3>
 
-                </div>
+                ${example(
+                    "I was tired.",
+                    "مان ٿڪل هئس.",
+                    "میں تھکا ہوا تھا."
+                )}
 
+                ${example(
+                    "He was at home.",
+                    "هو گهر ۾ هو.",
+                    "وہ گھر میں تھا."
+                )}
 
-                <div class="example">
+                ${example(
+                    "They were happy.",
+                    "اهي خوش هئا.",
+                    "وہ خوش تھے."
+                )}
 
-                    <p><strong>She is a teacher.</strong></p>
+                <h3>Future</h3>
 
-                    <p>هوءَ استاد آهي.</p>
+                ${example(
+                    "I will be happy.",
+                    "مان خوش ٿيندس.",
+                    "میں خوش ہوں گا."
+                )}
 
-                    <p>وہ استاد ہے.</p>
+                ${example(
+                    "She will be a teacher.",
+                    "هوءَ استاد ٿيندي.",
+                    "وہ استاد بنے گی."
+                )}
 
-                    <button class="listen-btn"
-                            data-text="She is a teacher.">
-                        🔊 Listen
-                    </button>
-
-                </div>
-
-
-                <div class="example">
-
-                    <p><strong>They are ready.</strong></p>
-
-                    <p>اهي تيار آهن.</p>
-
-                    <p>وہ تیار ہیں.</p>
-
-                    <button class="listen-btn"
-                            data-text="They are ready.">
-                        🔊 Listen
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- ======================================
-                 PRESENT BE
-            ======================================= -->
-
-            <div class="lesson-card">
-
-                <h3>🟢 Present</h3>
-
-                <div class="pattern">
-                    is / am / are
-                </div>
-
-                <p><strong>I am tired.</strong></p>
-                <p>مان ٿڪل آهيان.</p>
-                <p>میں تھکا ہوا ہوں.</p>
-
-                <button class="listen-btn"
-                        data-text="I am tired.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>He is at home.</strong></p>
-                <p>هو گهر ۾ آهي.</p>
-                <p>وہ گھر میں ہے.</p>
-
-                <button class="listen-btn"
-                        data-text="He is at home.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>They are happy.</strong></p>
-                <p>اهي خوش آهن.</p>
-                <p>وہ خوش ہیں.</p>
-
-                <button class="listen-btn"
-                        data-text="They are happy.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "They will be ready.",
+                    "اهي تيار هوندا.",
+                    "وہ تیار ہوں گے."
+                )}
 
             </div>
 
 
-            <!-- ======================================
-                 PAST BE
-            ======================================= -->
-
-            <div class="lesson-card">
-
-                <h3>🟠 Past</h3>
-
-                <div class="pattern">
-                    was / were
-                </div>
-
-                <p><strong>I was tired.</strong></p>
-                <p>مان ٿڪل هئس.</p>
-                <p>میں تھکا ہوا تھا.</p>
-
-                <button class="listen-btn"
-                        data-text="I was tired.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>She was at home.</strong></p>
-                <p>هوءَ گهر ۾ هئي.</p>
-                <p>وہ گھر میں تھی.</p>
-
-                <button class="listen-btn"
-                        data-text="She was at home.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>They were ready.</strong></p>
-                <p>اهي تيار هئا.</p>
-                <p>وہ تیار تھے.</p>
-
-                <button class="listen-btn"
-                        data-text="They were ready.">
-                    🔊 Listen
-                </button>
-
-            </div>
-
-
-            <!-- ======================================
-                 FUTURE BE
-            ======================================= -->
-
-            <div class="lesson-card">
-
-                <h3>🔵 Future</h3>
-
-                <div class="pattern">
-                    will be
-                </div>
-
-                <p><strong>I will be ready.</strong></p>
-                <p>مان تيار ٿيندس.</p>
-                <p>میں تیار ہوں گا.</p>
-
-                <button class="listen-btn"
-                        data-text="I will be ready.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>She will be at home.</strong></p>
-                <p>هوءَ گهر ۾ هوندي.</p>
-                <p>وہ گھر میں ہوگی.</p>
-
-                <button class="listen-btn"
-                        data-text="She will be at home.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>They will be happy.</strong></p>
-                <p>اهي خوش ٿيندا.</p>
-                <p>وہ خوش ہوں گے.</p>
-
-                <button class="listen-btn"
-                        data-text="They will be happy.">
-                    🔊 Listen
-                </button>
-
-            </div>
-
-
-            <!-- ======================================
+            <!-- =========================================
                  NEGATIVE
-            ======================================= -->
+            ========================================== -->
 
             <div class="lesson-card">
 
                 <h3>❌ Negative</h3>
 
-                <p><strong>I am not tired.</strong></p>
-                <p>مان ٿڪل ناهيان.</p>
-                <p>میں تھکا ہوا نہیں ہوں.</p>
+                <div class="pattern">
+                    Subject + BE + not + Complement
+                </div>
 
-                <button class="listen-btn"
-                        data-text="I am not tired.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "I am not tired.",
+                    "مان ٿڪل ناهيان.",
+                    "میں تھکا ہوا نہیں ہوں."
+                )}
 
+                ${example(
+                    "He is not at home.",
+                    "هو گهر ۾ ناهي.",
+                    "وہ گھر میں نہیں ہے."
+                )}
 
-                <p><strong>He is not at home.</strong></p>
-                <p>هو گهر ۾ ناهي.</p>
-                <p>وہ گھر میں نہیں ہے.</p>
+                ${example(
+                    "They are not ready.",
+                    "اهي تيار ناهن.",
+                    "وہ تیار نہیں ہیں."
+                )}
 
-                <button class="listen-btn"
-                        data-text="He is not at home.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "She was not happy.",
+                    "هوءَ خوش نه هئي.",
+                    "وہ خوش نہیں تھی."
+                )}
 
+                ${example(
+                    "They were not late.",
+                    "اهي دير سان نه هئا.",
+                    "وہ دیر سے نہیں تھے."
+                )}
 
-                <p><strong>They were not ready.</strong></p>
-                <p>اهي تيار نه هئا.</p>
-                <p>وہ تیار نہیں تھے.</p>
-
-                <button class="listen-btn"
-                        data-text="They were not ready.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "I will not be late.",
+                    "مان دير سان نه ايندس.",
+                    "میں دیر سے نہیں آؤں گا."
+                )}
 
             </div>
 
 
-            <!-- ======================================
+            <!-- =========================================
                  QUESTIONS
-            ======================================= -->
+            ========================================== -->
 
             <div class="lesson-card">
 
-                <h3>❓ Questions</h3>
+                <h3>❓ Interrogative</h3>
 
-                <p><strong>Are you ready?</strong></p>
-                <p>ڇا تون تيار آهين؟</p>
-                <p>کیا تم تیار ہو؟</p>
+                <div class="pattern">
+                    BE + Subject + Complement?
+                </div>
 
-                <button class="listen-btn"
-                        data-text="Are you ready?">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "Am I late?",
+                    "ڇا مان دير سان آهيان؟",
+                    "کیا میں دیر سے ہوں؟"
+                )}
 
+                ${example(
+                    "Is she a teacher?",
+                    "ڇا هوءَ استاد آهي؟",
+                    "کیا وہ استاد ہے؟"
+                )}
 
-                <p><strong>Is she at home?</strong></p>
-                <p>ڇا هوءَ گهر ۾ آهي؟</p>
-                <p>کیا وہ گھر میں ہے؟</p>
+                ${example(
+                    "Are they ready?",
+                    "ڇا اهي تيار آهن؟",
+                    "کیا وہ تیار ہیں؟"
+                )}
 
-                <button class="listen-btn"
-                        data-text="Is she at home?">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "Was he at home?",
+                    "ڇا هو گهر ۾ هو؟",
+                    "کیا وہ گھر میں تھا؟"
+                )}
 
+                ${example(
+                    "Were they happy?",
+                    "ڇا اهي خوش هئا؟",
+                    "کیا وہ خوش تھے؟"
+                )}
 
-                <p><strong>Were they happy?</strong></p>
-                <p>ڇا اهي خوش هئا؟</p>
-                <p>کیا وہ خوش تھے؟</p>
-
-                <button class="listen-btn"
-                        data-text="Were they happy?">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "Will she be ready?",
+                    "ڇا هوءَ تيار ٿيندي؟",
+                    "کیا وہ تیار ہوگی؟"
+                )}
 
             </div>
 
 
-            <!-- ======================================
+            <!-- =========================================
                  HAVE
-            ======================================= -->
+            ========================================== -->
 
             <div class="lesson-card">
 
                 <h3>🔹 Pattern 2 — HAVE</h3>
 
                 <div class="pattern">
-                    have / has → had → will have
+                    Subject + have / has + Object
                 </div>
 
-                <p><strong>I have money.</strong></p>
-                <p>مون وٽ پئسا آهن.</p>
-                <p>میرے پاس پیسے ہیں.</p>
+                ${example(
+                    "I have a book.",
+                    "مون وٽ ڪتاب آهي.",
+                    "میرے پاس ایک کتاب ہے."
+                )}
 
-                <button class="listen-btn"
-                        data-text="I have money.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "She has a pen.",
+                    "هن وٽ قلم آهي.",
+                    "اس کے پاس قلم ہے."
+                )}
 
+                ${example(
+                    "They have a house.",
+                    "انهن وٽ گهر آهي.",
+                    "ان کے پاس گھر ہے."
+                )}
 
-                <p><strong>She has a beautiful doll.</strong></p>
-                <p>هن وٽ سهڻي گڏي آهي.</p>
-                <p>اس کے پاس ایک خوبصورت گڑیا ہے.</p>
+                <h3>Past</h3>
 
-                <button class="listen-btn"
-                        data-text="She has a beautiful doll.">
-                    🔊 Listen
-                </button>
+                <div class="pattern">
+                    Subject + had + Object
+                </div>
 
+                ${example(
+                    "I had a book.",
+                    "مون وٽ ڪتاب هو.",
+                    "میرے پاس کتاب تھی."
+                )}
 
-                <p><strong>They had bags.</strong></p>
-                <p>انهن وٽ ٿيلها هئا.</p>
-                <p>ان کے پاس بیگ تھے.</p>
+                ${example(
+                    "She had a car.",
+                    "هن وٽ ڪار هئي.",
+                    "اس کے پاس گاڑی تھی."
+                )}
 
-                <button class="listen-btn"
-                        data-text="They had bags.">
-                    🔊 Listen
-                </button>
+                <h3>Future</h3>
 
+                <div class="pattern">
+                    Subject + will have + Object
+                </div>
 
-                <p><strong>I will have money.</strong></p>
-                <p>مون وٽ پئسا هوندا.</p>
-                <p>میرے پاس پیسے ہوں گے.</p>
-
-                <button class="listen-btn"
-                        data-text="I will have money.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "I will have a new book.",
+                    "مون وٽ نئون ڪتاب هوندو.",
+                    "میرے پاس نئی کتاب ہوگی."
+                )}
 
             </div>
 
 
-            <!-- ======================================
+            <!-- =========================================
                  THERE
-            ======================================= -->
+            ========================================== -->
 
             <div class="lesson-card">
 
                 <h3>🔹 Pattern 3 — THERE</h3>
 
                 <div class="pattern">
-                    There is / There are<br>
-                    There was / There were<br>
-                    There will be
+                    There + BE + Noun
                 </div>
 
-                <p><strong>There is a book on the table.</strong></p>
-                <p>ميز تي هڪ ڪتاب آهي.</p>
-                <p>میز پر ایک کتاب ہے.</p>
+                ${example(
+                    "There is a book on the table.",
+                    "ميز تي هڪ ڪتاب آهي.",
+                    "میز پر ایک کتاب ہے."
+                )}
 
-                <button class="listen-btn"
-                        data-text="There is a book on the table.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "There are two books on the table.",
+                    "ميز تي ٻه ڪتاب آهن.",
+                    "میز پر دو کتابیں ہیں."
+                )}
 
+                ${example(
+                    "There was a problem.",
+                    "هڪ مسئلو هو.",
+                    "ایک مسئلہ تھا."
+                )}
 
-                <p><strong>There are two students.</strong></p>
-                <p>ٻه شاگرد آهن.</p>
-                <p>دو طالب علم ہیں.</p>
-
-                <button class="listen-btn"
-                        data-text="There are two students.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>There was a problem.</strong></p>
-                <p>هڪ مسئلو هو.</p>
-                <p>ایک مسئلہ تھا.</p>
-
-                <button class="listen-btn"
-                        data-text="There was a problem.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>There will be a meeting.</strong></p>
-                <p>هڪ گڏجاڻي ٿيندي.</p>
-                <p>ایک میٹنگ ہوگی.</p>
-
-                <button class="listen-btn"
-                        data-text="There will be a meeting.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "There will be a meeting.",
+                    "هڪ گڏجاڻي ٿيندي.",
+                    "ایک میٹنگ ہوگی."
+                )}
 
             </div>
 
 
-            <!-- ======================================
+            <!-- =========================================
                  IT
-            ======================================= -->
+            ========================================== -->
 
             <div class="lesson-card">
 
                 <h3>🔹 Pattern 4 — IT</h3>
 
+                <p>
+                    <strong>IT</strong> can be used for time, weather,
+                    distance, condition and situation.
+                </p>
+
+                ${example(
+                    "It is hot.",
+                    "گرمي آهي.",
+                    "گرمی ہے."
+                )}
+
+                ${example(
+                    "It is cold.",
+                    "ٿڌ آهي.",
+                    "سردی ہے."
+                )}
+
+                ${example(
+                    "It is five o'clock.",
+                    "پنج وڳا آهن.",
+                    "پانچ بجے ہیں."
+                )}
+
+                ${example(
+                    "It is far from here.",
+                    "هيءَ جاءِ هتان کان پري آهي.",
+                    "یہ جگہ یہاں سے دور ہے."
+                )}
+
+                ${example(
+                    "It was difficult.",
+                    "اهو ڏکيو هو.",
+                    "یہ مشکل تھا."
+                )}
+
+            </div>
+
+
+            <!-- =========================================
+                 STATE / CONDITION
+            ========================================== -->
+
+            <div class="lesson-card">
+
+                <h3>🌱 State / Condition</h3>
+
                 <div class="pattern">
-                    IT = Time • Weather • Distance • Condition • Situation
+                    Subject + BE + Adjective
                 </div>
 
-                <p><strong>It's five o'clock.</strong></p>
-                <p>پنج وڳيا آهن.</p>
-                <p>پانچ بجے ہیں.</p>
+                ${example(
+                    "I am sick.",
+                    "مان بيمار آهيان.",
+                    "میں بیمار ہوں."
+                )}
 
-                <button class="listen-btn"
-                        data-text="It's five o'clock.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "He is busy.",
+                    "هو مصروف آهي.",
+                    "وہ مصروف ہے."
+                )}
 
+                ${example(
+                    "She is tired.",
+                    "هوءَ ٿڪل آهي.",
+                    "وہ تھکی ہوئی ہے."
+                )}
 
-                <p><strong>It's hot today.</strong></p>
-                <p>اڄ گرمي آهي.</p>
-                <p>آج گرمی ہے.</p>
-
-                <button class="listen-btn"
-                        data-text="It's hot today.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>It's five kilometers from here.</strong></p>
-                <p>هتان کان پنج ڪلوميٽر آهي.</p>
-                <p>یہاں سے پانچ کلومیٹر ہے.</p>
-
-                <button class="listen-btn"
-                        data-text="It's five kilometers from here.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>It takes five minutes to make tea.</strong></p>
-                <p>چانهه ٺاهڻ ۾ پنج منٽ لڳن ٿا.</p>
-                <p>چائے بنانے میں پانچ منٹ لگتے ہیں.</p>
-
-                <button class="listen-btn"
-                        data-text="It takes five minutes to make tea.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>It takes me five minutes to cook rice.</strong></p>
-                <p>مون کي چانور پچائڻ ۾ پنج منٽ لڳن ٿا.</p>
-                <p>مجھے چاول پکانے میں پانچ منٹ لگتے ہیں.</p>
-
-                <button class="listen-btn"
-                        data-text="It takes me five minutes to cook rice.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "They are hungry.",
+                    "اهي بکيا آهن.",
+                    "وہ بھوکے ہیں."
+                )}
 
             </div>
 
 
-            <!-- ======================================
-                 STATE / CONDITION
-            ======================================= -->
+            <!-- =========================================
+                 STATE / SITUATION + ING
+            ========================================== -->
 
             <div class="lesson-card">
 
-                <h3>🔹 State / Condition</h3>
+                <h3>🌱 State / Situation with BE + -ing</h3>
 
-                <p><strong>The shop is open.</strong></p>
-                <p>دڪان کليل آهي.</p>
-                <p>دکان کھلی ہے.</p>
+                <div class="pattern">
+                    Subject + BE + Verb-ing
+                </div>
 
-                <button class="listen-btn"
-                        data-text="The shop is open.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "I am feeling tired.",
+                    "مان ٿڪ محسوس ڪري رهيو آهيان.",
+                    "میں تھکن محسوس کر رہا ہوں."
+                )}
 
+                ${example(
+                    "She is feeling better.",
+                    "هوءَ بهتر محسوس ڪري رهي آهي.",
+                    "وہ بہتر محسوس کر رہی ہے."
+                )}
 
-                <p><strong>My mom is awake.</strong></p>
-                <p>منهنجي ماءُ جاڳي رهي آهي.</p>
-                <p>میری ماں جاگ رہی ہے.</p>
-
-                <button class="listen-btn"
-                        data-text="My mom is awake.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>The baby is asleep.</strong></p>
-                <p>ٻار ستل آهي.</p>
-                <p>بچہ سویا ہوا ہے.</p>
-
-                <button class="listen-btn"
-                        data-text="The baby is asleep.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>I am exhausted.</strong></p>
-                <p>مان تمام گهڻو ٿڪل آهيان.</p>
-                <p>میں بہت تھکا ہوا ہوں.</p>
-
-                <button class="listen-btn"
-                        data-text="I am exhausted.">
-                    🔊 Listen
-                </button>
+                ${example(
+                    "They are waiting.",
+                    "اهي انتظار ڪري رهيا آهن.",
+                    "وہ انتظار کر رہے ہیں."
+                )}
 
             </div>
 
 
-            <!-- ======================================
-                 STATE WITH -ING
-            ======================================= -->
+            <!-- =========================================
+                 IMPORTANT
+            ========================================== -->
 
-            <div class="lesson-card">
+            <div class="important">
 
-                <h3>🔹 State / Situation with BE + -ing</h3>
+                <strong>⭐ Important:</strong>
 
-                <p><strong>The cat is sitting.</strong></p>
-                <p>ٻلي ويٺي آهي.</p>
-                <p>بلی بیٹھی ہے.</p>
+                <br><br>
 
-                <button class="listen-btn"
-                        data-text="The cat is sitting.">
-                    🔊 Listen
-                </button>
+                Grammar is not only about rules.
 
+                <br>
 
-                <p><strong>The girl is sitting.</strong></p>
-                <p>ڇوڪري ويٺي آهي.</p>
-                <p>لڑکی بیٹھی ہے.</p>
+                Learn the appropriate arrangement of words
+                to make meaningful sentences.
 
-                <button class="listen-btn"
-                        data-text="The girl is sitting.">
-                    🔊 Listen
-                </button>
+                <br><br>
 
-
-                <p><strong>The dog is standing.</strong></p>
-                <p>ڪتو بيٺو آهي.</p>
-                <p>کتا کھڑا ہے.</p>
-
-                <button class="listen-btn"
-                        data-text="The dog is standing.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>The clothes are hanging.</strong></p>
-                <p>ڪپڙا ٽنگيل آهن.</p>
-                <p>کپڑے لٹکے ہوئے ہیں.</p>
-
-                <button class="listen-btn"
-                        data-text="The clothes are hanging.">
-                    🔊 Listen
-                </button>
-
-
-                <p><strong>The flowers are blooming.</strong></p>
-                <p>گل ٽڙي رهيا آهن.</p>
-                <p>پھول کھل رہے ہیں.</p>
-
-                <button class="listen-btn"
-                        data-text="The flowers are blooming.">
-                    🔊 Listen
-                </button>
+                <strong>
+                    Pattern first — rule later.
+                </strong>
 
             </div>
 
 
-            <!-- ======================================
-                 IMPORTANT IDEA
-            ======================================= -->
+            <!-- PRACTICE WILL BE INSERTED HERE -->
 
-            <div class="lesson-card important">
-
-                <h3>💡 Remember</h3>
-
-                <p>
-                    <strong>BE</strong> can describe a state,
-                    condition, situation or location.
-                </p>
-
-                <p>
-                    <strong>HAVE</strong> can show possession.
-                </p>
-
-                <p>
-                    <strong>THERE</strong> introduces something
-                    that exists.
-                </p>
-
-                <p>
-                    <strong>IT</strong> can represent time,
-                    weather, distance, condition or a situation.
-                </p>
-
-            </div>
-
-
-            <!-- ======================================
-                 BACK
-            ======================================= -->
-
-            <button class="lesson-back"
-                    onclick="goHome()">
-
+            <button class="lesson-back" onclick="goHome()">
                 ← BACK TO CATEGORIES
+            </button>
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   CATEGORY 2
+   TENSES
+========================================================= */
+
+function buildCategory2() {
+
+    return `
+
+        <div class="lesson">
+
+            <button class="back-btn" onclick="goHome()">
+                ← BACK
+            </button>
+
+
+            <h2>
+                2. Tenses
+            </h2>
+
+
+            <div class="lesson-intro">
+
+                <p>
+                    🌱 <strong>Present • Past • Future</strong>
+                </p>
+
+                <p>
+                    Learn each tense through four useful sentence forms:
+                </p>
+
+                <p>
+                    ✅ Affirmative
+                    <br>
+                    ❌ Negative
+                    <br>
+                    ❓ Interrogative
+                    <br>
+                    ❓❌ Negative Interrogative
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 PRESENT SIMPLE
+            ================================================== -->
+
+            <div class="lesson-card">
+
+                <h3>🔵 Present Simple</h3>
+
+                <p>
+                    We use the Present Simple for habits,
+                    routines, repeated actions and general facts.
+                </p>
+
+
+                <h3>✅ Affirmative</h3>
+
+                <div class="pattern">
+                    I / You / We / They + V1
+                    <br>
+                    He / She / It + V1 + s/es
+                </div>
+
+                ${example(
+                    "I play cricket.",
+                    "مان ڪرڪيٽ کيڏان ٿو.",
+                    "میں کرکٹ کھیلتا ہوں."
+                )}
+
+                ${example(
+                    "She plays cricket.",
+                    "هوءَ ڪرڪيٽ کيڏي ٿي.",
+                    "وہ کرکٹ کھیلتی ہے."
+                )}
+
+                ${example(
+                    "They go to school.",
+                    "اهي اسڪول وڃن ٿا.",
+                    "وہ اسکول جاتے ہیں."
+                )}
+
+                ${example(
+                    "He works hard.",
+                    "هو محنت ڪري ٿو.",
+                    "وہ محنت کرتا ہے."
+                )}
+
+
+                <h3>❌ Negative</h3>
+
+                <div class="pattern">
+                    I / You / We / They + do not + V1
+                    <br>
+                    He / She / It + does not + V1
+                </div>
+
+                ${example(
+                    "I do not play cricket.",
+                    "مان ڪرڪيٽ نٿو کيڏان.",
+                    "میں کرکٹ نہیں کھیلتا."
+                )}
+
+                ${example(
+                    "She does not play cricket.",
+                    "هوءَ ڪرڪيٽ نٿي کيڏي.",
+                    "وہ کرکٹ نہیں کھیلتی."
+                )}
+
+                ${example(
+                    "They do not go to school.",
+                    "اهي اسڪول نٿا وڃن.",
+                    "وہ اسکول نہیں جاتے."
+                )}
+
+                ${example(
+                    "He does not work hard.",
+                    "هو محنت نٿو ڪري.",
+                    "وہ محنت نہیں کرتا."
+                )}
+
+
+                <h3>❓ Interrogative</h3>
+
+                <div class="pattern">
+                    Do + I / you / we / they + V1?
+                    <br>
+                    Does + he / she / it + V1?
+                </div>
+
+                ${example(
+                    "Do you play cricket?",
+                    "ڇا تون ڪرڪيٽ کيڏين ٿو؟",
+                    "کیا تم کرکٹ کھیلتے ہو؟"
+                )}
+
+                ${example(
+                    "Does she play cricket?",
+                    "ڇا هوءَ ڪرڪيٽ کيڏي ٿي؟",
+                    "کیا وہ کرکٹ کھیلتی ہے؟"
+                )}
+
+                ${example(
+                    "Do they go to school?",
+                    "ڇا اهي اسڪول وڃن ٿا؟",
+                    "کیا وہ اسکول جاتے ہیں؟"
+                )}
+
+                ${example(
+                    "Does he work hard?",
+                    "ڇا هو محنت ڪري ٿو؟",
+                    "کیا وہ محنت کرتا ہے؟"
+                )}
+
+
+                <h3>❓❌ Negative Interrogative</h3>
+
+                <div class="pattern">
+                    Do + subject + not + V1?
+                    <br>
+                    Does + subject + not + V1?
+                </div>
+
+                ${example(
+                    "Do you not play cricket?",
+                    "ڇا تون ڪرڪيٽ نٿو کيڏين؟",
+                    "کیا تم کرکٹ نہیں کھیلتے؟"
+                )}
+
+                ${example(
+                    "Does she not play cricket?",
+                    "ڇا هوءَ ڪرڪيٽ نٿي کيڏي؟",
+                    "کیا وہ کرکٹ نہیں کھیلتی؟"
+                )}
+
+                ${example(
+                    "Do they not go to school?",
+                    "ڇا اهي اسڪول نٿا وڃن؟",
+                    "کیا وہ اسکول نہیں جاتے؟"
+                )}
+
+                ${example(
+                    "Does he not work hard?",
+                    "ڇا هو محنت نٿو ڪري؟",
+                    "کیا وہ محنت نہیں کرتا؟"
+                )}
+
+            </div>
+
+
+            <!-- =================================================
+                 PAST SIMPLE
+            ================================================== -->
+
+            <div class="lesson-card">
+
+                <h3>🟠 Past Simple</h3>
+
+                <p>
+                    We use the Past Simple for completed actions
+                    or situations in the past.
+                </p>
+
+
+                <h3>✅ Affirmative</h3>
+
+                <div class="pattern">
+                    Subject + V2
+                </div>
+
+                ${example(
+                    "I played cricket.",
+                    "مون ڪرڪيٽ کيڏي.",
+                    "میں نے کرکٹ کھیلی."
+                )}
+
+                ${example(
+                    "She played cricket.",
+                    "هن ڪرڪيٽ کيڏي.",
+                    "اس نے کرکٹ کھیلی."
+                )}
+
+                ${example(
+                    "They went to school.",
+                    "اهي اسڪول ويا.",
+                    "وہ اسکول گئے."
+                )}
+
+                ${example(
+                    "He worked hard.",
+                    "هن محنت ڪئي.",
+                    "اس نے محنت کی."
+                )}
+
+
+                <h3>❌ Negative</h3>
+
+                <div class="pattern">
+                    Subject + did not + V1
+                </div>
+
+                ${example(
+                    "I did not play cricket.",
+                    "مون ڪرڪيٽ نه کيڏي.",
+                    "میں نے کرکٹ نہیں کھیلی."
+                )}
+
+                ${example(
+                    "She did not play cricket.",
+                    "هن ڪرڪيٽ نه کيڏي.",
+                    "اس نے کرکٹ نہیں کھیلی."
+                )}
+
+                ${example(
+                    "They did not go to school.",
+                    "اهي اسڪول نه ويا.",
+                    "وہ اسکول نہیں گئے."
+                )}
+
+                ${example(
+                    "He did not work hard.",
+                    "هن محنت نه ڪئي.",
+                    "اس نے محنت نہیں کی."
+                )}
+
+
+                <h3>❓ Interrogative</h3>
+
+                <div class="pattern">
+                    Did + Subject + V1?
+                </div>
+
+                ${example(
+                    "Did you play cricket?",
+                    "ڇا تو ڪرڪيٽ کيڏي؟",
+                    "کیا تم نے کرکٹ کھیلی؟"
+                )}
+
+                ${example(
+                    "Did she play cricket?",
+                    "ڇا هن ڪرڪيٽ کيڏي؟",
+                    "کیا اس نے کرکٹ کھیلی؟"
+                )}
+
+                ${example(
+                    "Did they go to school?",
+                    "ڇا اهي اسڪول ويا؟",
+                    "کیا وہ اسکول گئے؟"
+                )}
+
+                ${example(
+                    "Did he work hard?",
+                    "ڇا هن محنت ڪئي؟",
+                    "کیا اس نے محنت کی؟"
+                )}
+
+
+                <h3>❓❌ Negative Interrogative</h3>
+
+                <div class="pattern">
+                    Did + Subject + not + V1?
+                </div>
+
+                ${example(
+                    "Did you not play cricket?",
+                    "ڇا تو ڪرڪيٽ نه کيڏي؟",
+                    "کیا تم نے کرکٹ نہیں کھیلی؟"
+                )}
+
+                ${example(
+                    "Did she not play cricket?",
+                    "ڇا هن ڪرڪيٽ نه کيڏي؟",
+                    "کیا اس نے کرکٹ نہیں کھیلی؟"
+                )}
+
+                ${example(
+                    "Did they not go to school?",
+                    "ڇا اهي اسڪول نه ويا؟",
+                    "کیا وہ اسکول نہیں گئے؟"
+                )}
+
+                ${example(
+                    "Did he not work hard?",
+                    "ڇا هن محنت نه ڪئي؟",
+                    "کیا اس نے محنت نہیں کی؟"
+                )}
+
+            </div>
+
+
+            <!-- =================================================
+                 FUTURE SIMPLE
+            ================================================== -->
+
+            <div class="lesson-card">
+
+                <h3>🟢 Future Simple</h3>
+
+                <p>
+                    We use the Future Simple for actions,
+                    events or situations that will happen later.
+                </p>
+
+
+                <h3>✅ Affirmative</h3>
+
+                <div class="pattern">
+                    Subject + will + V1
+                </div>
+
+                ${example(
+                    "I will play cricket.",
+                    "مان ڪرڪيٽ کيڏندس.",
+                    "میں کرکٹ کھیلوں گا."
+                )}
+
+                ${example(
+                    "She will play cricket.",
+                    "هوءَ ڪرڪيٽ کيڏندي.",
+                    "وہ کرکٹ کھیلے گی."
+                )}
+
+                ${example(
+                    "They will go to school.",
+                    "اهي اسڪول ويندا.",
+                    "وہ اسکول جائیں گے."
+                )}
+
+                ${example(
+                    "He will work hard.",
+                    "هو محنت ڪندو.",
+                    "وہ محنت کرے گا."
+                )}
+
+
+                <h3>❌ Negative</h3>
+
+                <div class="pattern">
+                    Subject + will not + V1
+                </div>
+
+                ${example(
+                    "I will not play cricket.",
+                    "مان ڪرڪيٽ نه کيڏندس.",
+                    "میں کرکٹ نہیں کھیلوں گا."
+                )}
+
+                ${example(
+                    "She will not play cricket.",
+                    "هوءَ ڪرڪيٽ نه کيڏندي.",
+                    "وہ کرکٹ نہیں کھیلے گی."
+                )}
+
+                ${example(
+                    "They will not go to school.",
+                    "اهي اسڪول نه ويندا.",
+                    "وہ اسکول نہیں جائیں گے."
+                )}
+
+                ${example(
+                    "He will not work hard.",
+                    "هو محنت نه ڪندو.",
+                    "وہ محنت نہیں کرے گا."
+                )}
+
+
+                <h3>❓ Interrogative</h3>
+
+                <div class="pattern">
+                    Will + Subject + V1?
+                </div>
+
+                ${example(
+                    "Will you play cricket?",
+                    "ڇا تون ڪرڪيٽ کيڏندين؟",
+                    "کیا تم کرکٹ کھیلو گے؟"
+                )}
+
+                ${example(
+                    "Will she play cricket?",
+                    "ڇا هوءَ ڪرڪيٽ کيڏندي؟",
+                    "کیا وہ کرکٹ کھیلے گی؟"
+                )}
+
+                ${example(
+                    "Will they go to school?",
+                    "ڇا اهي اسڪول ويندا؟",
+                    "کیا وہ اسکول جائیں گے؟"
+                )}
+
+                ${example(
+                    "Will he work hard?",
+                    "ڇا هو محنت ڪندو؟",
+                    "کیا وہ محنت کرے گا؟"
+                )}
+
+
+                <h3>❓❌ Negative Interrogative</h3>
+
+                <div class="pattern">
+                    Will + Subject + not + V1?
+                </div>
+
+                ${example(
+                    "Will you not play cricket?",
+                    "ڇا تون ڪرڪيٽ نه کيڏندين؟",
+                    "کیا تم کرکٹ نہیں کھیلو گے؟"
+                )}
+
+                ${example(
+                    "Will she not play cricket?",
+                    "ڇا هوءَ ڪرڪيٽ نه کيڏندي؟",
+                    "کیا وہ کرکٹ نہیں کھیلے گی؟"
+                )}
+
+                ${example(
+                    "Will they not go to school?",
+                    "ڇا اهي اسڪول نه ويندا؟",
+                    "کیا وہ اسکول نہیں جائیں گے؟"
+                )}
+
+                ${example(
+                    "Will he not work hard?",
+                    "ڇا هو محنت نه ڪندو؟",
+                    "کیا وہ محنت نہیں کرے گا؟"
+                )}
+
+            </div>
+
+
+            <!-- =================================================
+                 QUICK COMPARISON
+            ================================================== -->
+
+            <div class="lesson-card">
+
+                <h3>⭐ Quick Pattern Comparison</h3>
+
+                <div class="pattern">
+                    PRESENT
+                    <br>
+                    I play.
+                    <br>
+                    I do not play.
+                    <br>
+                    Do I play?
+                    <br>
+                    Do I not play?
+                </div>
+
+                <div class="pattern">
+                    PAST
+                    <br>
+                    I played.
+                    <br>
+                    I did not play.
+                    <br>
+                    Did I play?
+                    <br>
+                    Did I not play?
+                </div>
+
+                <div class="pattern">
+                    FUTURE
+                    <br>
+                    I will play.
+                    <br>
+                    I will not play.
+                    <br>
+                    Will I play?
+                    <br>
+                    Will I not play?
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORTANT
+            ================================================== -->
+
+            <div class="important">
+
+                <strong>⭐ Remember:</strong>
+
+                <br><br>
+
+                In Present Simple:
+
+                <br>
+
+                <strong>Does + V1</strong>
+
+                <br><br>
+
+                In Past Simple:
+
+                <br>
+
+                <strong>Did + V1</strong>
+
+                <br><br>
+
+                After <strong>do, does, did</strong>,
+                use the base form <strong>V1</strong>.
+
+                <br><br>
+
+                <strong>
+                    Learn the pattern first — understand the rule later.
+                </strong>
+
+            </div>
+
+
+            <button class="lesson-back" onclick="goHome()">
+                ← BACK TO CATEGORIES
+            </button>
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   EXAMPLE BUILDER
+========================================================= */
+
+function example(english, sindhi, urdu) {
+
+    return `
+
+        <div class="example">
+
+            <div class="english">
+                ${english}
+            </div>
+
+            <div class="sindhi">
+                سنڌي: ${sindhi}
+            </div>
+
+            <div class="urdu">
+                اردو: ${urdu}
+            </div>
+
+            <button
+                class="listen-btn"
+                data-text="${escapeAttribute(english)}">
+
+                🔊 Listen
 
             </button>
 
@@ -748,46 +1184,66 @@ function buildCategory1() {
 }
 
 
-// =====================================================
-// LISTEN BUTTONS
-// =====================================================
+/* =========================================================
+   ESCAPE ATTRIBUTE TEXT
+========================================================= */
+
+function escapeAttribute(text) {
+
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+}
+
+
+/* =========================================================
+   LISTEN BUTTONS
+========================================================= */
 
 function setupLessonButtons() {
 
     const buttons =
         document.querySelectorAll(".listen-btn");
 
-    buttons.forEach(function (button) {
+    buttons.forEach(function(button) {
 
-        button.addEventListener("click", function () {
+        button.addEventListener("click", function() {
 
             const text =
                 button.getAttribute("data-text");
 
-            if (!text) {
-                return;
-            }
+            if (text) {
 
-            speakEnglish(text);
+                speakEnglish(
+                    text
+                        .replace(/&quot;/g, '"')
+                        .replace(/&amp;/g, "&")
+                        .replace(/&lt;/g, "<")
+                        .replace(/&gt;/g, ">")
+                );
+
+            }
 
         });
 
     });
 
-    setupPractice();
 }
 
 
-// =====================================================
-// TEXT TO SPEECH
-// =====================================================
+/* =========================================================
+   SPEECH
+========================================================= */
 
 function speakEnglish(text) {
 
     if (!("speechSynthesis" in window)) {
 
         alert(
-            "Sorry. Your browser does not support English speech."
+            "Speech is not supported by this browser."
         );
 
         return;
@@ -799,190 +1255,181 @@ function speakEnglish(text) {
         new SpeechSynthesisUtterance(text);
 
     speech.lang = "en-US";
-
     speech.rate = 0.85;
-
     speech.pitch = 1;
 
     window.speechSynthesis.speak(speech);
+
 }
 
 
-// =====================================================
-// GO HOME
-// =====================================================
+/* =========================================================
+   GO HOME
+========================================================= */
 
 function goHome() {
 
-    window.speechSynthesis.cancel();
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+    }
 
     const categoryScreen =
         document.getElementById("category-screen");
 
-    categoryScreen.style.display = "none";
-
     const mainMenu =
         document.querySelector(".main-menu");
 
-    mainMenu.style.display = "block";
+    if (categoryScreen) {
+
+        categoryScreen.style.display = "none";
+
+        categoryScreen.innerHTML = `
+            <button class="back-btn" onclick="goHome()">
+                ← BACK
+            </button>
+
+            <h2 id="category-title"></h2>
+            <p id="category-message"></p>
+        `;
+
+    }
+
+    if (mainMenu) {
+        mainMenu.style.display = "block";
+    }
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
-// =====================================================
-// PAGE LOADED
-// =====================================================
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        console.log(
-            "LET'S IMPROVE ENGLISH loaded successfully."
-        );
-
-    }
-);
-// =====================================================
-// 🎯 CATEGORY 1 — PRACTICE MODE
-// =====================================================
+/* =========================================================
+   CATEGORY 1 PRACTICE
+========================================================= */
 
 const practiceQuestions = [
 
     {
-        native: "مان خوش آهيان.",
+        question: "مان خوش آهيان.",
         options: [
             "I am happy.",
-            "I was happy.",
             "I have happy.",
-            "I will happy."
+            "I do happy."
         ],
-        answer: "I am happy."
+        answer: 0
     },
 
     {
-        native: "هو گهر ۾ آهي.",
+        question: "هوءَ استاد آهي.",
         options: [
-            "He was at home.",
-            "He is at home.",
-            "He has at home.",
-            "He will at home."
+            "She has a teacher.",
+            "She is a teacher.",
+            "She does a teacher."
         ],
-        answer: "He is at home."
+        answer: 1
     },
 
     {
-        native: "اهي تيار هئا.",
+        question: "اهي تيار ناهن.",
         options: [
-            "They are ready.",
-            "They have ready.",
-            "They were ready.",
-            "They will ready."
+            "They are not ready.",
+            "They do not ready.",
+            "They have not ready."
         ],
-        answer: "They were ready."
+        answer: 0
     },
 
     {
-        native: "مان تيار ٿيندس.",
+        question: "ڇا هو گهر ۾ آهي؟",
         options: [
-            "I am ready.",
-            "I was ready.",
-            "I had ready.",
-            "I will be ready."
+            "Does he home?",
+            "Is he at home?",
+            "Has he home?"
         ],
-        answer: "I will be ready."
+        answer: 1
     },
 
     {
-        native: "مون وٽ پئسا آهن.",
+        question: "مون وٽ ڪتاب آهي.",
         options: [
-            "I am money.",
-            "I have money.",
-            "I had money.",
-            "I will money."
+            "I am a book.",
+            "I do a book.",
+            "I have a book."
         ],
-        answer: "I have money."
+        answer: 2
     },
 
     {
-        native: "انهن وٽ ٿيلها هئا.",
+        question: "هن وٽ قلم هو.",
         options: [
-            "They have bags.",
-            "They are bags.",
-            "They had bags.",
-            "They will bags."
+            "She had a pen.",
+            "She was a pen.",
+            "She did a pen."
         ],
-        answer: "They had bags."
+        answer: 0
     },
 
     {
-        native: "ميز تي هڪ ڪتاب آهي.",
+        question: "ميز تي هڪ ڪتاب آهي.",
         options: [
+            "It is a book on the table.",
             "There is a book on the table.",
-            "There was a book on the table.",
-            "It has a book on the table.",
-            "There will book on the table."
+            "The book has the table."
         ],
-        answer: "There is a book on the table."
+        answer: 1
     },
 
     {
-        native: "هڪ مسئلو هو.",
+        question: "ڇا اهي خوش هئا؟",
         options: [
-            "There is a problem.",
-            "There was a problem.",
-            "There has a problem.",
-            "There will a problem."
+            "Were they happy?",
+            "Did they happy?",
+            "Had they happy?"
         ],
-        answer: "There was a problem."
+        answer: 0
     },
 
     {
-        native: "اڄ گرمي آهي.",
+        question: "مان ٿڪل ناهيان.",
         options: [
-            "It was hot today.",
-            "It has hot today.",
-            "It's hot today.",
-            "It will hot today."
-        ],
-        answer: "It's hot today."
-    },
-
-    {
-        native: "ڇا تون تيار آهين؟",
-        options: [
-            "Are you ready?",
-            "Were you ready?",
-            "Do you ready?",
-            "Have you ready?"
-        ],
-        answer: "Are you ready?"
-    },
-
-    {
-        native: "ڇا هوءَ گهر ۾ آهي؟",
-        options: [
-            "Does she at home?",
-            "Is she at home?",
-            "Has she at home?",
-            "Was she at home?"
-        ],
-        answer: "Is she at home?"
-    },
-
-    {
-        native: "مان ٿڪل ناهيان.",
-        options: [
+            "I do not tired.",
             "I am not tired.",
-            "I was not tired.",
-            "I have not tired.",
-            "I will not tired."
+            "I have not tired."
         ],
-        answer: "I am not tired."
+        answer: 1
+    },
+
+    {
+        question: "ڇا هوءَ استاد آهي؟",
+        options: [
+            "Does she a teacher?",
+            "Has she a teacher?",
+            "Is she a teacher?"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "هڪ مسئلو هو.",
+        options: [
+            "There was a problem.",
+            "There did a problem.",
+            "There had a problem."
+        ],
+        answer: 0
+    },
+
+    {
+        question: "ڇا سڀاڻي گڏجاڻي ٿيندي؟",
+        options: [
+            "Will there be a meeting?",
+            "Will there have a meeting?",
+            "Does there be a meeting?"
+        ],
+        answer: 0
     }
 
 ];
@@ -993,100 +1440,36 @@ let practiceScore = 0;
 let practiceAnswered = false;
 
 
-// =====================================================
-// CREATE PRACTICE AREA
-// =====================================================
+/* =========================================================
+   SETUP PRACTICE
+========================================================= */
 
 function setupPractice() {
 
     const lesson =
         document.querySelector(".lesson");
 
-    if (!lesson) {
+    const backButton =
+        document.querySelector(".lesson-back");
+
+    if (!lesson || !backButton) {
         return;
     }
 
-    const oldPractice =
+    let practiceArea =
         document.getElementById("practice-area");
 
-    if (oldPractice) {
-        oldPractice.remove();
-    }
+    if (!practiceArea) {
 
-    const practice =
-        document.createElement("div");
+        practiceArea =
+            document.createElement("div");
 
-    practice.id = "practice-area";
-
-    practice.innerHTML = `
-
-        <div style="
-            margin-top:30px;
-            padding:22px 15px;
-            background:#173f35;
-            color:white;
-            border-radius:18px;
-            text-align:center;
-        ">
-
-            <h2 style="
-                margin-bottom:10px;
-                font-size:25px;
-            ">
-                🎯 Practice Mode
-            </h2>
-
-            <p style="
-                font-size:16px;
-                margin-bottom:18px;
-            ">
-                Choose the correct English sentence.
-            </p>
-
-            <div id="practice-score"
-                 style="
-                    font-size:18px;
-                    font-weight:bold;
-                    margin-bottom:18px;
-                 ">
-                Score: 0 / ${practiceQuestions.length}
-            </div>
-
-            <div id="practice-question"
-                 style="
-                    background:white;
-                    color:#173f35;
-                    padding:20px 12px;
-                    border-radius:15px;
-                 ">
-            </div>
-
-            <div id="practice-result"
-                 style="
-                    margin-top:15px;
-                    min-height:28px;
-                    font-size:18px;
-                    font-weight:bold;
-                 ">
-            </div>
-
-        </div>
-
-    `;
-
-    const backButton =
-        lesson.querySelector(".lesson-back");
-
-    if (backButton) {
+        practiceArea.id = "practice-area";
 
         lesson.insertBefore(
-            practice,
+            practiceArea,
             backButton
         );
-
-    } else {
-
-        lesson.appendChild(practice);
 
     }
 
@@ -1095,69 +1478,51 @@ function setupPractice() {
     practiceAnswered = false;
 
     showPracticeQuestion();
+
 }
 
 
-// =====================================================
-// SHOW QUESTION
-// =====================================================
+/* =========================================================
+   SHOW PRACTICE QUESTION
+========================================================= */
 
 function showPracticeQuestion() {
 
-    const questionBox =
-        document.getElementById("practice-question");
+    const area =
+        document.getElementById("practice-area");
 
-    const resultBox =
-        document.getElementById("practice-result");
-
-    const scoreBox =
-        document.getElementById("practice-score");
-
-    if (!questionBox) {
+    if (!area) {
         return;
     }
 
     if (practiceIndex >= practiceQuestions.length) {
 
-        questionBox.innerHTML = `
+        area.innerHTML = `
 
-            <h3 style="
-                font-size:24px;
-                margin-bottom:15px;
-            ">
-                🎉 Practice Complete!
-            </h3>
+            <div class="practice-question">
 
-            <p style="
-                font-size:20px;
-                margin-bottom:20px;
-            ">
-                Your Score:
-                <strong>
-                    ${practiceScore} / ${practiceQuestions.length}
-                </strong>
-            </p>
+                <h2>🎉 Practice Complete!</h2>
 
-            <button
-                onclick="restartPractice()"
-                style="
-                    width:100%;
-                    padding:15px;
-                    border:none;
-                    border-radius:12px;
-                    background:#173f35;
-                    color:white;
-                    font-size:18px;
-                    font-weight:bold;
-                    cursor:pointer;
-                ">
-                🔄 PRACTICE AGAIN
-            </button>
+                <p>
+                    Your Score:
+                    <strong>
+                        ${practiceScore}
+                        /
+                        ${practiceQuestions.length}
+                    </strong>
+                </p>
+
+                <button
+                    class="practice-restart"
+                    onclick="restartPractice()">
+
+                    🔄 Try Again
+
+                </button>
+
+            </div>
 
         `;
-
-        resultBox.innerHTML =
-            "🌟 Well done! Keep practicing.";
 
         return;
     }
@@ -1168,80 +1533,67 @@ function showPracticeQuestion() {
 
     practiceAnswered = false;
 
-    scoreBox.textContent =
-        "Score: " +
-        practiceScore +
-        " / " +
-        practiceQuestions.length;
-
 
     let optionsHTML = "";
 
+    question.options.forEach(
+        function(option, index) {
 
-    question.options.forEach(function (option, index) {
+            optionsHTML += `
 
-        optionsHTML += `
+                <button
+                    class="practice-option"
+                    onclick="checkPracticeAnswer(${index})">
 
-            <button
-                class="practice-option"
-                onclick="checkPracticeAnswer(${index})"
-                style="
-                    display:block;
-                    width:100%;
-                    margin:10px 0;
-                    padding:15px 10px;
-                    border:2px solid #173f35;
-                    border-radius:12px;
-                    background:#f5f8f7;
-                    color:#173f35;
-                    font-size:18px;
-                    font-weight:bold;
-                    cursor:pointer;
-                ">
+                    ${option}
 
-                ${option}
+                </button>
 
-            </button>
+            `;
 
-        `;
-
-    });
+        }
+    );
 
 
-    questionBox.innerHTML = `
+    area.innerHTML = `
 
-        <div style="
-            font-size:14px;
-            color:#60716c;
-            margin-bottom:8px;
-        ">
-            Question ${practiceIndex + 1}
-            of ${practiceQuestions.length}
-        </div>
+        <div class="practice-question">
 
-        <div style="
-            font-size:23px;
-            font-weight:bold;
-            margin-bottom:20px;
-            line-height:1.6;
-        ">
-            ${question.native}
-        </div>
+            <h2>🧠 Practice</h2>
 
-        <div>
+            <div class="practice-score">
+                Score:
+                ${practiceScore}
+                /
+                ${practiceQuestions.length}
+            </div>
+
+            <p>
+                Translate into English:
+            </p>
+
+            <p>
+                ${question.question}
+            </p>
+
             ${optionsHTML}
+
+            <div
+                id="practice-feedback"
+                class="practice-feedback"
+                style="display:none;">
+            </div>
+
         </div>
 
     `;
 
-
-    resultBox.innerHTML = "";
 }
 
 
-// =====================================================
-// CHECK ANSWER
-// =====================================================
+/* =========================================================
+   CHECK PRACTICE ANSWER
+========================================================= */
 
 function checkPracticeAnswer(selectedIndex) {
 
@@ -1252,76 +1604,97 @@ function checkPracticeAnswer(selectedIndex) {
     const question =
         practiceQuestions[practiceIndex];
 
-    const selected =
-        question.options[selectedIndex];
+    const feedback =
+        document.getElementById("practice-feedback");
 
-    const resultBox =
-        document.getElementById("practice-result");
+    const options =
+        document.querySelectorAll(".practice-option");
 
-    if (selected === question.answer) {
 
-        practiceScore++;
-
-        resultBox.innerHTML =
-            "✅ Correct! Excellent!";
-
-        resultBox.style.color =
-            "#8ff0a4";
+    if (selectedIndex === question.answer) {
 
         practiceAnswered = true;
 
-    } else {
+        practiceScore++;
 
-        resultBox.innerHTML =
-            "❌ Try again!";
+        if (feedback) {
 
-        resultBox.style.color =
-            "#ffb3b3";
+            feedback.style.display = "block";
 
-        return;
+            feedback.innerHTML =
+                "✅ Correct! Well done.";
+
+        }
+
+        options.forEach(function(option) {
+            option.disabled = true;
+        });
+
+
+        setTimeout(function() {
+
+            practiceIndex++;
+
+            showPracticeQuestion();
+
+        }, 900);
+
     }
 
+    else {
 
-    const buttons =
-        document.querySelectorAll(".practice-option");
+        if (feedback) {
 
-    buttons.forEach(function (button) {
+            feedback.style.display = "block";
 
-        button.disabled = true;
+            feedback.innerHTML =
+                "❌ Try again. Look carefully at the pattern.";
 
-        button.style.opacity = "0.65";
+        }
 
-    });
+    }
 
-
-    setTimeout(function () {
-
-        practiceIndex++;
-
-        showPracticeQuestion();
-
-    }, 900);
 }
 
 
-// =====================================================
-// RESTART PRACTICE
-// =====================================================
+/* =========================================================
+   RESTART PRACTICE
+========================================================= */
 
 function restartPractice() {
 
     practiceIndex = 0;
-
     practiceScore = 0;
-
     practiceAnswered = false;
 
     showPracticeQuestion();
 
-    window.scrollTo({
-        top:
-            document.getElementById("practice-area")
-                .offsetTop - 20,
-        behavior: "smooth"
-    });
+    const area =
+        document.getElementById("practice-area");
+
+    if (area) {
+
+        area.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
 }
+
+
+/* =========================================================
+   APP START
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        console.log(
+            "📚 LET'S IMPROVE ENGLISH loaded successfully."
+        );
+
+    }
+);
