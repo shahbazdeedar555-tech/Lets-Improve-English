@@ -1,3 +1,4 @@
+
 // ======================================================
 // 📚 LET'S IMPROVE ENGLISH
 // COMPLETE OFFLINE SCRIPT
@@ -193,6 +194,391 @@ function exampleBox(english, sindhi, urdu) {
 
         </div>
     `;
+}
+
+
+// ======================================================
+// PRACTICE DATA — CATEGORY 1
+// SIMPLE SENTENCES / NO ACTION
+// ======================================================
+
+const simplePractice = [
+
+    {
+        sindhi: "مان خوش آهيان.",
+        correct: "I am happy.",
+        options: [
+            "I am happy.",
+            "I happy am.",
+            "I happy."
+        ]
+    },
+
+    {
+        sindhi: "هو استاد آهي.",
+        correct: "He is a teacher.",
+        options: [
+            "He teacher is.",
+            "He is a teacher.",
+            "He a teacher."
+        ]
+    },
+
+    {
+        sindhi: "هوءَ بيمار آهي.",
+        correct: "She is sick.",
+        options: [
+            "She sick is.",
+            "She is sick.",
+            "She sick."
+        ]
+    },
+
+    {
+        sindhi: "اهي تيار آهن.",
+        correct: "They are ready.",
+        options: [
+            "They ready are.",
+            "They are ready.",
+            "They ready."
+        ]
+    },
+
+    {
+        sindhi: "مان ٿڪل آهيان.",
+        correct: "I am tired.",
+        options: [
+            "I tired am.",
+            "I am tired.",
+            "I tired."
+        ]
+    },
+
+    {
+        sindhi: "هو بکيو آهي.",
+        correct: "He is hungry.",
+        options: [
+            "He hungry is.",
+            "He is hungry.",
+            "He hungry."
+        ]
+    },
+
+    {
+        sindhi: "مان خوش هئس.",
+        correct: "I was happy.",
+        options: [
+            "I was happy.",
+            "I happy was.",
+            "I was happy am."
+        ]
+    },
+
+    {
+        sindhi: "هوءَ استاد هئي.",
+        correct: "She was a teacher.",
+        options: [
+            "She teacher was.",
+            "She was a teacher.",
+            "She a teacher."
+        ]
+    },
+
+    {
+        sindhi: "مان خوش هوندس.",
+        correct: "I will be happy.",
+        options: [
+            "I happy will be.",
+            "I will be happy.",
+            "I will happy."
+        ]
+    },
+
+    {
+        sindhi: "مان خوش نه آهيان.",
+        correct: "I am not happy.",
+        options: [
+            "I not am happy.",
+            "I am not happy.",
+            "I am happy not."
+        ]
+    },
+
+    {
+        sindhi: "ڇا تون خوش آهين؟",
+        correct: "Are you happy?",
+        options: [
+            "You are happy?",
+            "Are you happy?",
+            "Happy are you?"
+        ]
+    },
+
+    {
+        sindhi: "مون وٽ ڪتاب آهي.",
+        correct: "I have a book.",
+        options: [
+            "I have a book.",
+            "I a book have.",
+            "I book have."
+        ]
+    },
+
+    {
+        sindhi: "هن وٽ ڪار آهي.",
+        correct: "She has a car.",
+        options: [
+            "She a car has.",
+            "She has a car.",
+            "She car has."
+        ]
+    },
+
+    {
+        sindhi: "ميز تي هڪ ڪتاب آهي.",
+        correct: "There is a book on the table.",
+        options: [
+            "There a book is on the table.",
+            "There is a book on the table.",
+            "There book is a on the table."
+        ]
+    },
+
+    {
+        sindhi: "ٿڌ آهي.",
+        correct: "It is cold.",
+        options: [
+            "It cold is.",
+            "It is cold.",
+            "It cold."
+        ]
+    }
+
+];
+
+
+// ======================================================
+// PRACTICE DATA — CATEGORY 2
+// TENSES
+// ======================================================
+
+const tensePractice = [
+
+    {
+        sindhi: "مان ڪرڪيٽ کيڏان ٿو.",
+        correct: "I play cricket.",
+        options: [
+            "I play cricket.",
+            "I cricket play.",
+            "I playing cricket."
+        ]
+    },
+
+    {
+        sindhi: "مان ڪرڪيٽ نه کيڏان ٿو.",
+        correct: "I do not play cricket.",
+        options: [
+            "I do not play cricket.",
+            "I not play cricket.",
+            "I do not playing cricket."
+        ]
+    },
+
+    {
+        sindhi: "ڇا مان ڪرڪيٽ کيڏان ٿو؟",
+        correct: "Do I play cricket?",
+        options: [
+            "Do I play cricket?",
+            "I do play cricket?",
+            "Play I do cricket?"
+        ]
+    },
+
+    {
+        sindhi: "مون ڪرڪيٽ کيڏي.",
+        correct: "I played cricket.",
+        options: [
+            "I play cricket.",
+            "I played cricket.",
+            "I playing cricket."
+        ]
+    },
+
+    {
+        sindhi: "مون ڪرڪيٽ نه کيڏي.",
+        correct: "I did not play cricket.",
+        options: [
+            "I did not play cricket.",
+            "I did not played cricket.",
+            "I not played cricket."
+        ]
+    },
+
+    {
+        sindhi: "ڇا مون ڪرڪيٽ کيڏي؟",
+        correct: "Did I play cricket?",
+        options: [
+            "Did I play cricket?",
+            "Did I played cricket?",
+            "I did play cricket?"
+        ]
+    },
+
+    {
+        sindhi: "مان ڪرڪيٽ کيڏندس.",
+        correct: "I will play cricket.",
+        options: [
+            "I will play cricket.",
+            "I will played cricket.",
+            "I play will cricket."
+        ]
+    },
+
+    {
+        sindhi: "مان ڪرڪيٽ نه کيڏندس.",
+        correct: "I will not play cricket.",
+        options: [
+            "I will not play cricket.",
+            "I not will play cricket.",
+            "I will not played cricket."
+        ]
+    },
+
+    {
+        sindhi: "ڇا مان ڪرڪيٽ کيڏندس؟",
+        correct: "Will I play cricket?",
+        options: [
+            "Will I play cricket?",
+            "Will I played cricket?",
+            "I will play cricket?"
+        ]
+    },
+
+    {
+        sindhi: "مان ڪرڪيٽ کيڏي رهيو آهيان.",
+        correct: "I am playing cricket.",
+        options: [
+            "I am playing cricket.",
+            "I playing am cricket.",
+            "I am play cricket."
+        ]
+    },
+
+    {
+        sindhi: "مان ڪرڪيٽ نه کيڏي رهيو آهيان.",
+        correct: "I am not playing cricket.",
+        options: [
+            "I am not playing cricket.",
+            "I not am playing cricket.",
+            "I am not play cricket."
+        ]
+    },
+
+    {
+        sindhi: "ڇا مان ڪرڪيٽ کيڏي رهيو آهيان؟",
+        correct: "Am I playing cricket?",
+        options: [
+            "Am I playing cricket?",
+            "Am I play cricket?",
+            "I am playing cricket?"
+        ]
+    },
+
+    {
+        sindhi: "مان ڪرڪيٽ کيڏي رهيو هئس.",
+        correct: "I was playing cricket.",
+        options: [
+            "I was playing cricket.",
+            "I playing was cricket.",
+            "I was play cricket."
+        ]
+    },
+
+    {
+        sindhi: "مان ڪرڪيٽ کيڏي رهيو هوندس.",
+        correct: "I will be playing cricket.",
+        options: [
+            "I will be playing cricket.",
+            "I will playing be cricket.",
+            "I will be play cricket."
+        ]
+    },
+
+    {
+        sindhi: "مان هن وقت ڪرڪيٽ کيڏي رهيو آهيان.",
+        correct: "I am playing cricket now.",
+        options: [
+            "I am playing cricket now.",
+            "I playing cricket am now.",
+            "I am play cricket now."
+        ]
+    }
+
+];
+
+
+// ======================================================
+// BUILD PRACTICE AREA
+// ======================================================
+
+function buildPracticeArea(title, questions, prefix) {
+
+    let html = `
+
+        <div class="lesson-card">
+
+            <div id="${prefix}-practice-area">
+
+                <h3>🧠 ${title}</h3>
+
+                <p>
+                    هيٺ ڏنل سنڌي جملي لاءِ صحيح انگريزي جملو چونڊيو:
+                </p>
+    `;
+
+    questions.forEach((question, index) => {
+
+        html += `
+
+            <div class="practice-question">
+
+                <p>
+                    ${index + 1}. ${question.sindhi}
+                </p>
+
+                <button
+                    class="practice-option"
+                    onclick="practiceAnswer(this, true, '${prefix}-${index}')">
+                    ${question.options[0]}
+                </button>
+
+                <button
+                    class="practice-option"
+                    onclick="practiceAnswer(this, false, '${prefix}-${index}')">
+                    ${question.options[1]}
+                </button>
+
+                <button
+                    class="practice-option"
+                    onclick="practiceAnswer(this, false, '${prefix}-${index}')">
+                    ${question.options[2]}
+                </button>
+
+                <div
+                    id="${prefix}-feedback-${index}"
+                    class="practice-feedback">
+                </div>
+
+            </div>
+        `;
+    });
+
+    html += `
+            </div>
+        </div>
+    `;
+
+    return html;
 }
 
 
@@ -475,42 +861,14 @@ function buildCategory1() {
 
 
             <!-- =========================================
-                 PRACTICE
+                 15 SINDHI PRACTICE SENTENCES
             ========================================== -->
 
-            <div id="practice-area">
-
-                <h3>🧠 Practice</h3>
-
-                <p>
-                    Choose the correct English sentence.
-                </p>
-
-                <div class="practice-question">
-                    I am happy.
-                </div>
-
-                <button
-                    class="practice-option"
-                    onclick="practiceAnswer(this, true)">
-                    I am happy.
-                </button>
-
-                <button
-                    class="practice-option"
-                    onclick="practiceAnswer(this, false)">
-                    I happy am.
-                </button>
-
-                <button
-                    class="practice-option"
-                    onclick="practiceAnswer(this, false)">
-                    I happy.
-                </button>
-
-                <div class="practice-feedback"></div>
-
-            </div>
+            ${buildPracticeArea(
+                "مشق — صحيح انگريزي جملو سڃاڻو",
+                simplePractice,
+                "simple"
+            )}
 
 
             <button
@@ -933,6 +1291,17 @@ function buildCategory2() {
             </div>
 
 
+            <!-- =========================================
+                 15 SINDHI TENSE PRACTICE SENTENCES
+            ========================================== -->
+
+            ${buildPracticeArea(
+                "مشق — صحيح انگريزي جملو سڃاڻو",
+                tensePractice,
+                "tense"
+            )}
+
+
             <button
                 class="lesson-back"
                 onclick="backToCategories()">
@@ -945,16 +1314,27 @@ function buildCategory2() {
 
 
 // ======================================================
-// SIMPLE PRACTICE
+// PRACTICE ANSWER
 // ======================================================
 
-function practiceAnswer(button, correct) {
+function practiceAnswer(button, correct, questionId) {
+
+    const questionBox = button.closest(".practice-question");
 
     const feedback =
-        document.querySelector(".practice-feedback");
+        document.getElementById(
+            questionId.replace(
+                "simple-",
+                "simple-feedback-"
+            ).replace(
+                "tense-",
+                "tense-feedback-"
+            )
+        );
 
     const options =
-        document.querySelectorAll(".practice-option");
+        questionBox.querySelectorAll(".practice-option");
+
 
     options.forEach(option => {
         option.disabled = true;
@@ -964,13 +1344,12 @@ function practiceAnswer(button, correct) {
     if (correct) {
 
         feedback.innerHTML =
-            "✅ Correct! Excellent.";
+            "✅ صحيح! تمام سٺو.";
 
     } else {
 
         feedback.innerHTML =
-            "❌ Try again and remember the pattern.";
-
+            "❌ غلط. ٻيهر نمونو ڏسو ۽ ڪوشش ڪريو.";
     }
 
 }
