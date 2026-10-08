@@ -3,7 +3,7 @@
 // OFFLINE SERVICE WORKER
 // ======================================================
 
-const CACHE_NAME = "lets-improve-english-v2";
+const CACHE_NAME = "lets-improve-english-v3";
 
 const FILES_TO_CACHE = [
     "./",
@@ -23,13 +23,17 @@ self.addEventListener("install", event => {
     event.waitUntil(
 
         caches.open(CACHE_NAME)
+
             .then(cache => {
                 return cache.addAll(FILES_TO_CACHE);
             })
 
+            .then(() => {
+                return self.skipWaiting();
+            })
+
     );
 
-    self.skipWaiting();
 });
 
 
@@ -41,26 +45,31 @@ self.addEventListener("activate", event => {
 
     event.waitUntil(
 
-        caches.keys().then(keys => {
+        caches.keys()
 
-            return Promise.all(
+            .then(cacheNames => {
 
-                keys
-                    .filter(key => key !== CACHE_NAME)
-                    .map(key => caches.delete(key))
+                return Promise.all(
 
-            );
+                    cacheNames
+                        .filter(cacheName => cacheName !== CACHE_NAME)
+                        .map(cacheName => caches.delete(cacheName))
 
-        })
+                );
+
+            })
+
+            .then(() => {
+                return self.clients.claim();
+            })
 
     );
 
-    self.clients.claim();
 });
 
 
 // ======================================================
-// FETCH — WORK OFFLINE
+// FETCH
 // ======================================================
 
 self.addEventListener("fetch", event => {
@@ -68,6 +77,7 @@ self.addEventListener("fetch", event => {
     event.respondWith(
 
         caches.match(event.request)
+
             .then(cachedResponse => {
 
                 if (cachedResponse) {
