@@ -30,18 +30,10 @@ function openCategory(categoryNumber) {
     }
 
     else if (categoryNumber === 3) {
-        categoryScreen.innerHTML = `
-            <div class="lesson">
-                <h2>📘 Synonyms & Antonyms</h2>
-                <p class="lesson-intro">
-                    This lesson will be added soon.
-                </p>
-                <button class="lesson-back" onclick="backToCategories()">
-                    ← BACK TO CATEGORIES
-                </button>
-            </div>
-        `;
-    }
+
+    categoryScreen.innerHTML = buildCategory3();
+
+}
 
     else if (categoryNumber === 4) {
         categoryScreen.innerHTML = `
@@ -1690,3 +1682,4 @@ window.addEventListener("load", function () {
     }
 
 });
+ 
