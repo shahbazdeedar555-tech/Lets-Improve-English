@@ -3,6 +3,7 @@
    📚 LET'S IMPROVE ENGLISH
    COMPLETE OFFLINE SCRIPT
    CATEGORY 1 + CATEGORY 2
+   SIMPLE + CONTINUOUS TENSES
 ========================================================= */
 
 
@@ -21,7 +22,7 @@ const categories = {
     2: {
         title: "2. Tenses",
         message:
-            "Learn Present, Past and Future through four sentence forms: Affirmative, Negative, Interrogative and Negative Interrogative."
+            "Learn Present, Past and Future through Simple and Continuous forms."
     },
 
     3: {
@@ -65,8 +66,6 @@ function openCategory(categoryNumber) {
 
     const mainMenu = document.querySelector(".main-menu");
     const categoryScreen = document.getElementById("category-screen");
-    const title = document.getElementById("category-title");
-    const message = document.getElementById("category-message");
 
     if (!mainMenu || !categoryScreen) {
         return;
@@ -74,6 +73,7 @@ function openCategory(categoryNumber) {
 
     mainMenu.style.display = "none";
     categoryScreen.style.display = "block";
+
 
     if (categoryNumber === 1) {
 
@@ -96,15 +96,26 @@ function openCategory(categoryNumber) {
 
         const category = categories[categoryNumber];
 
-        title.textContent = category
-            ? category.title
-            : "Category";
+        categoryScreen.innerHTML = `
 
-        message.textContent = category
-            ? category.message
-            : "This category is coming soon.";
+            <button class="back-btn" onclick="goHome()">
+                ← BACK
+            </button>
+
+            <h2 id="category-title">
+                ${category ? category.title : "Category"}
+            </h2>
+
+            <p id="category-message">
+                ${category
+                    ? category.message
+                    : "This category is coming soon."}
+            </p>
+
+        `;
 
     }
+
 
     window.scrollTo({
         top: 0,
@@ -569,8 +580,6 @@ function buildCategory1() {
             </div>
 
 
-            <!-- PRACTICE WILL BE INSERTED HERE -->
-
             <button class="lesson-back" onclick="goHome()">
                 ← BACK TO CATEGORIES
             </button>
@@ -583,7 +592,7 @@ function buildCategory1() {
 
 /* =========================================================
    CATEGORY 2
-   TENSES
+   SIMPLE + CONTINUOUS TENSES
 ========================================================= */
 
 function buildCategory2() {
@@ -596,11 +605,9 @@ function buildCategory2() {
                 ← BACK
             </button>
 
-
             <h2>
                 2. Tenses
             </h2>
-
 
             <div class="lesson-intro">
 
@@ -609,7 +616,11 @@ function buildCategory2() {
                 </p>
 
                 <p>
-                    Learn each tense through four useful sentence forms:
+                    Learn English tenses through clear sentence patterns.
+                </p>
+
+                <p>
+                    Every tense is shown in four forms:
                 </p>
 
                 <p>
@@ -626,18 +637,22 @@ function buildCategory2() {
 
 
             <!-- =================================================
-                 PRESENT SIMPLE
+                 SIMPLE TENSES
             ================================================== -->
 
             <div class="lesson-card">
 
-                <h3>🔵 Present Simple</h3>
+                <h3>📘 PART 1 — SIMPLE TENSES</h3>
 
                 <p>
-                    We use the Present Simple for habits,
-                    routines, repeated actions and general facts.
+                    Simple tenses generally describe habits,
+                    facts, completed actions or future actions.
                 </p>
 
+
+                <!-- PRESENT SIMPLE -->
+
+                <h3>🔵 Present Simple</h3>
 
                 <h3>✅ Affirmative</h3>
 
@@ -657,18 +672,6 @@ function buildCategory2() {
                     "She plays cricket.",
                     "هوءَ ڪرڪيٽ کيڏي ٿي.",
                     "وہ کرکٹ کھیلتی ہے."
-                )}
-
-                ${example(
-                    "They go to school.",
-                    "اهي اسڪول وڃن ٿا.",
-                    "وہ اسکول جاتے ہیں."
-                )}
-
-                ${example(
-                    "He works hard.",
-                    "هو محنت ڪري ٿو.",
-                    "وہ محنت کرتا ہے."
                 )}
 
 
@@ -692,25 +695,13 @@ function buildCategory2() {
                     "وہ کرکٹ نہیں کھیلتی."
                 )}
 
-                ${example(
-                    "They do not go to school.",
-                    "اهي اسڪول نٿا وڃن.",
-                    "وہ اسکول نہیں جاتے."
-                )}
-
-                ${example(
-                    "He does not work hard.",
-                    "هو محنت نٿو ڪري.",
-                    "وہ محنت نہیں کرتا."
-                )}
-
 
                 <h3>❓ Interrogative</h3>
 
                 <div class="pattern">
-                    Do + I / you / we / they + V1?
+                    Do + Subject + V1?
                     <br>
-                    Does + he / she / it + V1?
+                    Does + Subject + V1?
                 </div>
 
                 ${example(
@@ -725,25 +716,13 @@ function buildCategory2() {
                     "کیا وہ کرکٹ کھیلتی ہے؟"
                 )}
 
-                ${example(
-                    "Do they go to school?",
-                    "ڇا اهي اسڪول وڃن ٿا؟",
-                    "کیا وہ اسکول جاتے ہیں؟"
-                )}
-
-                ${example(
-                    "Does he work hard?",
-                    "ڇا هو محنت ڪري ٿو؟",
-                    "کیا وہ محنت کرتا ہے؟"
-                )}
-
 
                 <h3>❓❌ Negative Interrogative</h3>
 
                 <div class="pattern">
-                    Do + subject + not + V1?
+                    Do + Subject + not + V1?
                     <br>
-                    Does + subject + not + V1?
+                    Does + Subject + not + V1?
                 </div>
 
                 ${example(
@@ -758,34 +737,10 @@ function buildCategory2() {
                     "کیا وہ کرکٹ نہیں کھیلتی؟"
                 )}
 
-                ${example(
-                    "Do they not go to school?",
-                    "ڇا اهي اسڪول نٿا وڃن؟",
-                    "کیا وہ اسکول نہیں جاتے؟"
-                )}
 
-                ${example(
-                    "Does he not work hard?",
-                    "ڇا هو محنت نٿو ڪري؟",
-                    "کیا وہ محنت نہیں کرتا؟"
-                )}
-
-            </div>
-
-
-            <!-- =================================================
-                 PAST SIMPLE
-            ================================================== -->
-
-            <div class="lesson-card">
+                <!-- PAST SIMPLE -->
 
                 <h3>🟠 Past Simple</h3>
-
-                <p>
-                    We use the Past Simple for completed actions
-                    or situations in the past.
-                </p>
-
 
                 <h3>✅ Affirmative</h3>
 
@@ -803,18 +758,6 @@ function buildCategory2() {
                     "She played cricket.",
                     "هن ڪرڪيٽ کيڏي.",
                     "اس نے کرکٹ کھیلی."
-                )}
-
-                ${example(
-                    "They went to school.",
-                    "اهي اسڪول ويا.",
-                    "وہ اسکول گئے."
-                )}
-
-                ${example(
-                    "He worked hard.",
-                    "هن محنت ڪئي.",
-                    "اس نے محنت کی."
                 )}
 
 
@@ -836,18 +779,6 @@ function buildCategory2() {
                     "اس نے کرکٹ نہیں کھیلی."
                 )}
 
-                ${example(
-                    "They did not go to school.",
-                    "اهي اسڪول نه ويا.",
-                    "وہ اسکول نہیں گئے."
-                )}
-
-                ${example(
-                    "He did not work hard.",
-                    "هن محنت نه ڪئي.",
-                    "اس نے محنت نہیں کی."
-                )}
-
 
                 <h3>❓ Interrogative</h3>
 
@@ -865,18 +796,6 @@ function buildCategory2() {
                     "Did she play cricket?",
                     "ڇا هن ڪرڪيٽ کيڏي؟",
                     "کیا اس نے کرکٹ کھیلی؟"
-                )}
-
-                ${example(
-                    "Did they go to school?",
-                    "ڇا اهي اسڪول ويا؟",
-                    "کیا وہ اسکول گئے؟"
-                )}
-
-                ${example(
-                    "Did he work hard?",
-                    "ڇا هن محنت ڪئي؟",
-                    "کیا اس نے محنت کی؟"
                 )}
 
 
@@ -898,34 +817,10 @@ function buildCategory2() {
                     "کیا اس نے کرکٹ نہیں کھیلی؟"
                 )}
 
-                ${example(
-                    "Did they not go to school?",
-                    "ڇا اهي اسڪول نه ويا؟",
-                    "کیا وہ اسکول نہیں گئے؟"
-                )}
 
-                ${example(
-                    "Did he not work hard?",
-                    "ڇا هن محنت نه ڪئي؟",
-                    "کیا اس نے محنت نہیں کی؟"
-                )}
-
-            </div>
-
-
-            <!-- =================================================
-                 FUTURE SIMPLE
-            ================================================== -->
-
-            <div class="lesson-card">
+                <!-- FUTURE SIMPLE -->
 
                 <h3>🟢 Future Simple</h3>
-
-                <p>
-                    We use the Future Simple for actions,
-                    events or situations that will happen later.
-                </p>
-
 
                 <h3>✅ Affirmative</h3>
 
@@ -943,18 +838,6 @@ function buildCategory2() {
                     "She will play cricket.",
                     "هوءَ ڪرڪيٽ کيڏندي.",
                     "وہ کرکٹ کھیلے گی."
-                )}
-
-                ${example(
-                    "They will go to school.",
-                    "اهي اسڪول ويندا.",
-                    "وہ اسکول جائیں گے."
-                )}
-
-                ${example(
-                    "He will work hard.",
-                    "هو محنت ڪندو.",
-                    "وہ محنت کرے گا."
                 )}
 
 
@@ -976,18 +859,6 @@ function buildCategory2() {
                     "وہ کرکٹ نہیں کھیلے گی."
                 )}
 
-                ${example(
-                    "They will not go to school.",
-                    "اهي اسڪول نه ويندا.",
-                    "وہ اسکول نہیں جائیں گے."
-                )}
-
-                ${example(
-                    "He will not work hard.",
-                    "هو محنت نه ڪندو.",
-                    "وہ محنت نہیں کرے گا."
-                )}
-
 
                 <h3>❓ Interrogative</h3>
 
@@ -1005,18 +876,6 @@ function buildCategory2() {
                     "Will she play cricket?",
                     "ڇا هوءَ ڪرڪيٽ کيڏندي؟",
                     "کیا وہ کرکٹ کھیلے گی؟"
-                )}
-
-                ${example(
-                    "Will they go to school?",
-                    "ڇا اهي اسڪول ويندا؟",
-                    "کیا وہ اسکول جائیں گے؟"
-                )}
-
-                ${example(
-                    "Will he work hard?",
-                    "ڇا هو محنت ڪندو؟",
-                    "کیا وہ محنت کرے گا؟"
                 )}
 
 
@@ -1038,101 +897,466 @@ function buildCategory2() {
                     "کیا وہ کرکٹ نہیں کھیلے گی؟"
                 )}
 
-                ${example(
-                    "Will they not go to school?",
-                    "ڇا اهي اسڪول نه ويندا؟",
-                    "کیا وہ اسکول نہیں جائیں گے؟"
-                )}
-
-                ${example(
-                    "Will he not work hard?",
-                    "ڇا هو محنت نه ڪندو؟",
-                    "کیا وہ محنت نہیں کرے گا؟"
-                )}
-
             </div>
 
 
             <!-- =================================================
-                 QUICK COMPARISON
+                 CONTINUOUS TENSES
             ================================================== -->
 
             <div class="lesson-card">
 
-                <h3>⭐ Quick Pattern Comparison</h3>
+                <h3>📗 PART 2 — CONTINUOUS TENSES</h3>
+
+                <p>
+                    Continuous tenses show an action that is
+                    happening or was/will be happening around
+                    a particular time.
+                </p>
+
+
+                <!-- =========================================
+                     PRESENT CONTINUOUS
+                ========================================== -->
+
+                <h3>🔵 Present Continuous</h3>
 
                 <div class="pattern">
-                    PRESENT
+                    Subject + am / is / are + V-ing
+                </div>
+
+                <p>
+                    Used for an action happening now or around
+                    the present time.
+                </p>
+
+
+                <h3>✅ Affirmative</h3>
+
+                ${example(
+                    "I am playing cricket.",
+                    "مان ڪرڪيٽ کيڏي رهيو آهيان.",
+                    "میں کرکٹ کھیل رہا ہوں."
+                )}
+
+                ${example(
+                    "She is reading a book.",
+                    "هوءَ ڪتاب پڙهي رهي آهي.",
+                    "وہ کتاب پڑھ رہی ہے."
+                )}
+
+                ${example(
+                    "They are working.",
+                    "اهي ڪم ڪري رهيا آهن.",
+                    "وہ کام کر رہے ہیں."
+                )}
+
+
+                <h3>❌ Negative</h3>
+
+                <div class="pattern">
+                    Subject + am / is / are + not + V-ing
+                </div>
+
+                ${example(
+                    "I am not playing cricket.",
+                    "مان ڪرڪيٽ نه کيڏي رهيو آهيان.",
+                    "میں کرکٹ نہیں کھیل رہا ہوں."
+                )}
+
+                ${example(
+                    "She is not reading a book.",
+                    "هوءَ ڪتاب نه پڙهي رهي آهي.",
+                    "وہ کتاب نہیں پڑھ رہی ہے."
+                )}
+
+                ${example(
+                    "They are not working.",
+                    "اهي ڪم نه ڪري رهيا آهن.",
+                    "وہ کام نہیں کر رہے ہیں."
+                )}
+
+
+                <h3>❓ Interrogative</h3>
+
+                <div class="pattern">
+                    Am / Is / Are + Subject + V-ing?
+                </div>
+
+                ${example(
+                    "Am I playing cricket?",
+                    "ڇا مان ڪرڪيٽ کيڏي رهيو آهيان؟",
+                    "کیا میں کرکٹ کھیل رہا ہوں؟"
+                )}
+
+                ${example(
+                    "Is she reading a book?",
+                    "ڇا هوءَ ڪتاب پڙهي رهي آهي؟",
+                    "کیا وہ کتاب پڑھ رہی ہے؟"
+                )}
+
+                ${example(
+                    "Are they working?",
+                    "ڇا اهي ڪم ڪري رهيا آهن؟",
+                    "کیا وہ کام کر رہے ہیں؟"
+                )}
+
+
+                <h3>❓❌ Negative Interrogative</h3>
+
+                <div class="pattern">
+                    Am / Is / Are + Subject + not + V-ing?
+                </div>
+
+                ${example(
+                    "Am I not playing cricket?",
+                    "ڇا مان ڪرڪيٽ نه کيڏي رهيو آهيان؟",
+                    "کیا میں کرکٹ نہیں کھیل رہا ہوں؟"
+                )}
+
+                ${example(
+                    "Is she not reading a book?",
+                    "ڇا هوءَ ڪتاب نه پڙهي رهي آهي؟",
+                    "کیا وہ کتاب نہیں پڑھ رہی ہے؟"
+                )}
+
+                ${example(
+                    "Are they not working?",
+                    "ڇا اهي ڪم نه ڪري رهيا آهن؟",
+                    "کیا وہ کام نہیں کر رہے ہیں؟"
+                )}
+
+            </div>
+
+
+            <!-- =========================================
+                 PAST CONTINUOUS
+            ========================================== -->
+
+            <div class="lesson-card">
+
+                <h3>🟠 Past Continuous</h3>
+
+                <div class="pattern">
+                    Subject + was / were + V-ing
+                </div>
+
+                <p>
+                    Used for an action that was in progress
+                    at a particular time in the past.
+                </p>
+
+
+                <h3>✅ Affirmative</h3>
+
+                ${example(
+                    "I was playing cricket.",
+                    "مان ڪرڪيٽ کيڏي رهيو هئس.",
+                    "میں کرکٹ کھیل رہا تھا."
+                )}
+
+                ${example(
+                    "She was reading a book.",
+                    "هوءَ ڪتاب پڙهي رهي هئي.",
+                    "وہ کتاب پڑھ رہی تھی."
+                )}
+
+                ${example(
+                    "They were working.",
+                    "اهي ڪم ڪري رهيا هئا.",
+                    "وہ کام کر رہے تھے."
+                )}
+
+
+                <h3>❌ Negative</h3>
+
+                <div class="pattern">
+                    Subject + was / were + not + V-ing
+                </div>
+
+                ${example(
+                    "I was not playing cricket.",
+                    "مان ڪرڪيٽ نه کيڏي رهيو هئس.",
+                    "میں کرکٹ نہیں کھیل رہا تھا."
+                )}
+
+                ${example(
+                    "She was not reading a book.",
+                    "هوءَ ڪتاب نه پڙهي رهي هئي.",
+                    "وہ کتاب نہیں پڑھ رہی تھی."
+                )}
+
+                ${example(
+                    "They were not working.",
+                    "اهي ڪم نه ڪري رهيا هئا.",
+                    "وہ کام نہیں کر رہے تھے."
+                )}
+
+
+                <h3>❓ Interrogative</h3>
+
+                <div class="pattern">
+                    Was / Were + Subject + V-ing?
+                </div>
+
+                ${example(
+                    "Was I playing cricket?",
+                    "ڇا مان ڪرڪيٽ کيڏي رهيو هئس؟",
+                    "کیا میں کرکٹ کھیل رہا تھا؟"
+                )}
+
+                ${example(
+                    "Was she reading a book?",
+                    "ڇا هوءَ ڪتاب پڙهي رهي هئي؟",
+                    "کیا وہ کتاب پڑھ رہی تھی؟"
+                )}
+
+                ${example(
+                    "Were they working?",
+                    "ڇا اهي ڪم ڪري رهيا هئا؟",
+                    "کیا وہ کام کر رہے تھے؟"
+                )}
+
+
+                <h3>❓❌ Negative Interrogative</h3>
+
+                <div class="pattern">
+                    Was / Were + Subject + not + V-ing?
+                </div>
+
+                ${example(
+                    "Was I not playing cricket?",
+                    "ڇا مان ڪرڪيٽ نه کيڏي رهيو هئس؟",
+                    "کیا میں کرکٹ نہیں کھیل رہا تھا؟"
+                )}
+
+                ${example(
+                    "Was she not reading a book?",
+                    "ڇا هوءَ ڪتاب نه پڙهي رهي هئي؟",
+                    "کیا وہ کتاب نہیں پڑھ رہی تھی؟"
+                )}
+
+                ${example(
+                    "Were they not working?",
+                    "ڇا اهي ڪم نه ڪري رهيا هئا؟",
+                    "کیا وہ کام نہیں کر رہے تھے؟"
+                )}
+
+            </div>
+
+
+            <!-- =========================================
+                 FUTURE CONTINUOUS
+            ========================================== -->
+
+            <div class="lesson-card">
+
+                <h3>🟢 Future Continuous</h3>
+
+                <div class="pattern">
+                    Subject + will be + V-ing
+                </div>
+
+                <p>
+                    Used for an action that will be in progress
+                    at a particular time in the future.
+                </p>
+
+
+                <h3>✅ Affirmative</h3>
+
+                ${example(
+                    "I will be playing cricket.",
+                    "مان ڪرڪيٽ کيڏي رهيو هوندس.",
+                    "میں کرکٹ کھیل رہا ہوں گا."
+                )}
+
+                ${example(
+                    "She will be reading a book.",
+                    "هوءَ ڪتاب پڙهي رهي هوندي.",
+                    "وہ کتاب پڑھ رہی ہوگی."
+                )}
+
+                ${example(
+                    "They will be working.",
+                    "اهي ڪم ڪري رهيا هوندا.",
+                    "وہ کام کر رہے ہوں گے."
+                )}
+
+
+                <h3>❌ Negative</h3>
+
+                <div class="pattern">
+                    Subject + will not be + V-ing
+                </div>
+
+                ${example(
+                    "I will not be playing cricket.",
+                    "مان ڪرڪيٽ نه کيڏي رهيو هوندس.",
+                    "میں کرکٹ نہیں کھیل رہا ہوں گا."
+                )}
+
+                ${example(
+                    "She will not be reading a book.",
+                    "هوءَ ڪتاب نه پڙهي رهي هوندي.",
+                    "وہ کتاب نہیں پڑھ رہی ہوگی."
+                )}
+
+                ${example(
+                    "They will not be working.",
+                    "اهي ڪم نه ڪري رهيا هوندا.",
+                    "وہ کام نہیں کر رہے ہوں گے."
+                )}
+
+
+                <h3>❓ Interrogative</h3>
+
+                <div class="pattern">
+                    Will + Subject + be + V-ing?
+                </div>
+
+                ${example(
+                    "Will I be playing cricket?",
+                    "ڇا مان ڪرڪيٽ کيڏي رهيو هوندس؟",
+                    "کیا میں کرکٹ کھیل رہا ہوں گا؟"
+                )}
+
+                ${example(
+                    "Will she be reading a book?",
+                    "ڇا هوءَ ڪتاب پڙهي رهي هوندي؟",
+                    "کیا وہ کتاب پڑھ رہی ہوگی؟"
+                )}
+
+                ${example(
+                    "Will they be working?",
+                    "ڇا اهي ڪم ڪري رهيا هوندا؟",
+                    "کیا وہ کام کر رہے ہوں گے؟"
+                )}
+
+
+                <h3>❓❌ Negative Interrogative</h3>
+
+                <div class="pattern">
+                    Will + Subject + not + be + V-ing?
+                </div>
+
+                ${example(
+                    "Will I not be playing cricket?",
+                    "ڇا مان ڪرڪيٽ نه کيڏي رهيو هوندس؟",
+                    "کیا میں کرکٹ نہیں کھیل رہا ہوں گا؟"
+                )}
+
+                ${example(
+                    "Will she not be reading a book?",
+                    "ڇا هوءَ ڪتاب نه پڙهي رهي هوندي؟",
+                    "کیا وہ کتاب نہیں پڑھ رہی ہوگی؟"
+                )}
+
+                ${example(
+                    "Will they not be working?",
+                    "ڇا اهي ڪم نه ڪري رهيا هوندا؟",
+                    "کیا وہ کام نہیں کر رہے ہوں گے؟"
+                )}
+
+            </div>
+
+
+            <!-- =========================================
+                 SIMPLE VS CONTINUOUS
+            ========================================== -->
+
+            <div class="lesson-card">
+
+                <h3>⭐ Simple vs Continuous</h3>
+
+                <div class="pattern">
+                    SIMPLE
+                    <br><br>
+                    I play cricket.
                     <br>
-                    I play.
-                    <br>
-                    I do not play.
-                    <br>
-                    Do I play?
-                    <br>
-                    Do I not play?
+                    عام / عادت / repeated action
                 </div>
 
                 <div class="pattern">
-                    PAST
+                    CONTINUOUS
+                    <br><br>
+                    I am playing cricket.
                     <br>
-                    I played.
-                    <br>
-                    I did not play.
-                    <br>
-                    Did I play?
-                    <br>
-                    Did I not play?
+                    Action happening now
                 </div>
 
                 <div class="pattern">
-                    FUTURE
+                    SIMPLE
+                    <br><br>
+                    I played cricket.
                     <br>
-                    I will play.
+                    Completed past action
+                </div>
+
+                <div class="pattern">
+                    CONTINUOUS
+                    <br><br>
+                    I was playing cricket.
                     <br>
-                    I will not play.
+                    Action in progress in the past
+                </div>
+
+                <div class="pattern">
+                    SIMPLE
+                    <br><br>
+                    I will play cricket.
                     <br>
-                    Will I play?
+                    Future action
+                </div>
+
+                <div class="pattern">
+                    CONTINUOUS
+                    <br><br>
+                    I will be playing cricket.
                     <br>
-                    Will I not play?
+                    Action in progress at a future time
                 </div>
 
             </div>
 
 
-            <!-- =================================================
+            <!-- =========================================
                  IMPORTANT
-            ================================================== -->
+            ========================================== -->
 
             <div class="important">
 
-                <strong>⭐ Remember:</strong>
+                <strong>⭐ Continuous Pattern:</strong>
 
                 <br><br>
 
-                In Present Simple:
-
-                <br>
-
-                <strong>Does + V1</strong>
-
-                <br><br>
-
-                In Past Simple:
-
-                <br>
-
-                <strong>Did + V1</strong>
-
-                <br><br>
-
-                After <strong>do, does, did</strong>,
-                use the base form <strong>V1</strong>.
+                Continuous tenses use:
 
                 <br><br>
 
                 <strong>
-                    Learn the pattern first — understand the rule later.
+                    BE + Verb-ing
+                </strong>
+
+                <br><br>
+
+                Present:
+                <strong>am / is / are + V-ing</strong>
+
+                <br>
+
+                Past:
+                <strong>was / were + V-ing</strong>
+
+                <br>
+
+                Future:
+                <strong>will be + V-ing</strong>
+
+                <br><br>
+
+                <strong>
+                    Pattern first — rule later.
                 </strong>
 
             </div>
