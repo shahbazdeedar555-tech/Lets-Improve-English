@@ -30,23 +30,11 @@ function openCategory(categoryNumber) {
     }
 
     else if (categoryNumber === 3) {
-
-    categoryScreen.innerHTML = buildCategory3();
-
-}
+        categoryScreen.innerHTML = buildCategory3();
+    }
 
     else if (categoryNumber === 4) {
-        categoryScreen.innerHTML = `
-            <div class="lesson">
-                <h2>📘 Sentence Patterns</h2>
-                <p class="lesson-intro">
-                    This lesson will be added soon.
-                </p>
-                <button class="lesson-back" onclick="backToCategories()">
-                    ← BACK TO CATEGORIES
-                </button>
-            </div>
-        `;
+        categoryScreen.innerHTML = buildCategory4();
     }
 
     else if (categoryNumber === 5) {
@@ -195,10 +183,6 @@ function exampleBox(english, sindhi, urdu) {
 // ======================================================
 
 const simplePractice = [
-
-    // --------------------------------------------------
-    // ORIGINAL 15
-    // --------------------------------------------------
 
     {
         sindhi: "مان خوش آهيان.",
@@ -349,11 +333,6 @@ const simplePractice = [
             "It cold."
         ]
     },
-
-
-    // --------------------------------------------------
-    // NEW 15
-    // --------------------------------------------------
 
     {
         sindhi: "مان تيار آهيان.",
@@ -516,10 +495,6 @@ const simplePractice = [
 
 const tensePractice = [
 
-    // --------------------------------------------------
-    // ORIGINAL 15
-    // --------------------------------------------------
-
     {
         sindhi: "مان ڪرڪيٽ کيڏان ٿو.",
         correct: "I play cricket.",
@@ -669,11 +644,6 @@ const tensePractice = [
             "I am play cricket now."
         ]
     },
-
-
-    // --------------------------------------------------
-    // NEW 15
-    // --------------------------------------------------
 
     {
         sindhi: "مان روزانو اسڪول وڃان ٿو.",
@@ -917,11 +887,6 @@ function buildCategory1() {
                 something is, was, will be, has, or what exists.
             </p>
 
-
-            <!-- =========================================
-                 PATTERN 1 — BE
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🔹 Pattern 1 — BE</h3>
@@ -950,7 +915,6 @@ function buildCategory1() {
                     "وہ تیار ہیں۔"
                 )}
 
-
                 <h4>Past</h4>
 
                 ${exampleBox(
@@ -964,7 +928,6 @@ function buildCategory1() {
                     "هوءَ استاد هئي.",
                     "وہ استاد تھی۔"
                 )}
-
 
                 <h4>Future</h4>
 
@@ -980,7 +943,6 @@ function buildCategory1() {
                     "وہ استاد بنے گی۔"
                 )}
 
-
                 <h4>Negative</h4>
 
                 ${exampleBox(
@@ -988,7 +950,6 @@ function buildCategory1() {
                     "مان خوش نه آهيان.",
                     "میں خوش نہیں ہوں۔"
                 )}
-
 
                 <h4>Interrogative</h4>
 
@@ -1000,10 +961,6 @@ function buildCategory1() {
 
             </div>
 
-
-            <!-- =========================================
-                 PATTERN 2 — HAVE
-            ========================================== -->
 
             <div class="lesson-card">
 
@@ -1034,10 +991,6 @@ function buildCategory1() {
             </div>
 
 
-            <!-- =========================================
-                 PATTERN 3 — THERE
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🔹 Pattern 3 — THERE</h3>
@@ -1060,10 +1013,6 @@ function buildCategory1() {
 
             </div>
 
-
-            <!-- =========================================
-                 PATTERN 4 — IT
-            ========================================== -->
 
             <div class="lesson-card">
 
@@ -1094,10 +1043,6 @@ function buildCategory1() {
             </div>
 
 
-            <!-- =========================================
-                 STATE / CONDITION
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🔹 State / Condition</h3>
@@ -1123,10 +1068,6 @@ function buildCategory1() {
             </div>
 
 
-            <!-- =========================================
-                 STATE / SITUATION
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🔹 State / Situation with BE + -ing</h3>
@@ -1150,10 +1091,6 @@ function buildCategory1() {
             </div>
 
 
-            <!-- =========================================
-                 IMPORTANT — SINDHI
-            ========================================== -->
-
             <div class="important">
 
                 <h3>⭐ اهم</h3>
@@ -1170,10 +1107,6 @@ function buildCategory1() {
 
             </div>
 
-
-            <!-- =========================================
-                 PRACTICE — SINDHI
-            ========================================== -->
 
             ${buildPracticeArea(
                 "مشق — صحيح انگريزي جملو سڃاڻو",
@@ -1214,18 +1147,10 @@ function buildCategory2() {
             </p>
 
 
-            <!-- =================================================
-                 PART 1 — SIMPLE TENSES
-            ================================================== -->
-
             <h2>
                 📘 PART 1 — SIMPLE TENSES
             </h2>
 
-
-            <!-- =========================================
-                 PRESENT SIMPLE
-            ========================================== -->
 
             <div class="lesson-card">
 
@@ -1235,7 +1160,6 @@ function buildCategory2() {
                     Subject + V1 / V1+s/es
                 </div>
 
-
                 <h4>1️⃣ Affirmative</h4>
 
                 ${exampleBox(
@@ -1243,7 +1167,6 @@ function buildCategory2() {
                     "مان ڪرڪيٽ کيڏان ٿو.",
                     "میں کرکٹ کھیلتا ہوں۔"
                 )}
-
 
                 <h4>2️⃣ Negative</h4>
 
@@ -1253,7 +1176,6 @@ function buildCategory2() {
                     "میں کرکٹ نہیں کھیلتا۔"
                 )}
 
-
                 <h4>3️⃣ Interrogative</h4>
 
                 ${exampleBox(
@@ -1261,7 +1183,6 @@ function buildCategory2() {
                     "ڇا مان ڪرڪيٽ کيڏان ٿو؟",
                     "کیا میں کرکٹ کھیلتا ہوں؟"
                 )}
-
 
                 <h4>4️⃣ Negative Interrogative</h4>
 
@@ -1274,10 +1195,6 @@ function buildCategory2() {
             </div>
 
 
-            <!-- =========================================
-                 PAST SIMPLE
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🟠 Past Simple</h3>
@@ -1285,7 +1202,6 @@ function buildCategory2() {
                 <div class="pattern">
                     Subject + V2
                 </div>
-
 
                 <h4>1️⃣ Affirmative</h4>
 
@@ -1295,7 +1211,6 @@ function buildCategory2() {
                     "میں نے کرکٹ کھیلی۔"
                 )}
 
-
                 <h4>2️⃣ Negative</h4>
 
                 ${exampleBox(
@@ -1304,7 +1219,6 @@ function buildCategory2() {
                     "میں نے کرکٹ نہیں کھیلی۔"
                 )}
 
-
                 <h4>3️⃣ Interrogative</h4>
 
                 ${exampleBox(
@@ -1312,7 +1226,6 @@ function buildCategory2() {
                     "ڇا مون ڪرڪيٽ کيڏي؟",
                     "کیا میں نے کرکٹ کھیلی؟"
                 )}
-
 
                 <h4>4️⃣ Negative Interrogative</h4>
 
@@ -1325,10 +1238,6 @@ function buildCategory2() {
             </div>
 
 
-            <!-- =========================================
-                 FUTURE SIMPLE
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🟢 Future Simple</h3>
@@ -1336,7 +1245,6 @@ function buildCategory2() {
                 <div class="pattern">
                     Subject + will + V1
                 </div>
-
 
                 <h4>1️⃣ Affirmative</h4>
 
@@ -1346,7 +1254,6 @@ function buildCategory2() {
                     "میں کرکٹ کھیلوں گا۔"
                 )}
 
-
                 <h4>2️⃣ Negative</h4>
 
                 ${exampleBox(
@@ -1355,7 +1262,6 @@ function buildCategory2() {
                     "میں کرکٹ نہیں کھیلوں گا۔"
                 )}
 
-
                 <h4>3️⃣ Interrogative</h4>
 
                 ${exampleBox(
@@ -1363,7 +1269,6 @@ function buildCategory2() {
                     "ڇا مان ڪرڪيٽ کيڏندس؟",
                     "کیا میں کرکٹ کھیلوں گا؟"
                 )}
-
 
                 <h4>4️⃣ Negative Interrogative</h4>
 
@@ -1376,23 +1281,14 @@ function buildCategory2() {
             </div>
 
 
-            <!-- =================================================
-                 PART 2 — CONTINUOUS TENSES
-            ================================================== -->
-
             <h2>
                 📗 PART 2 — CONTINUOUS TENSES
             </h2>
-
 
             <p class="lesson-intro">
                 Continuous means an action is in progress.
             </p>
 
-
-            <!-- =========================================
-                 PRESENT CONTINUOUS
-            ========================================== -->
 
             <div class="lesson-card">
 
@@ -1402,7 +1298,6 @@ function buildCategory2() {
                     Subject + am / is / are + V-ing
                 </div>
 
-
                 <h4>1️⃣ Affirmative</h4>
 
                 ${exampleBox(
@@ -1410,7 +1305,6 @@ function buildCategory2() {
                     "مان ڪرڪيٽ کيڏي رهيو آهيان.",
                     "میں کرکٹ کھیل رہا ہوں۔"
                 )}
-
 
                 <h4>2️⃣ Negative</h4>
 
@@ -1420,7 +1314,6 @@ function buildCategory2() {
                     "میں کرکٹ نہیں کھیل رہا ہوں۔"
                 )}
 
-
                 <h4>3️⃣ Interrogative</h4>
 
                 ${exampleBox(
@@ -1428,7 +1321,6 @@ function buildCategory2() {
                     "ڇا مان ڪرڪيٽ کيڏي رهيو آهيان؟",
                     "کیا میں کرکٹ کھیل رہا ہوں؟"
                 )}
-
 
                 <h4>4️⃣ Negative Interrogative</h4>
 
@@ -1441,10 +1333,6 @@ function buildCategory2() {
             </div>
 
 
-            <!-- =========================================
-                 PAST CONTINUOUS
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🟠 Past Continuous</h3>
@@ -1452,7 +1340,6 @@ function buildCategory2() {
                 <div class="pattern">
                     Subject + was / were + V-ing
                 </div>
-
 
                 <h4>1️⃣ Affirmative</h4>
 
@@ -1462,7 +1349,6 @@ function buildCategory2() {
                     "میں کرکٹ کھیل رہا تھا۔"
                 )}
 
-
                 <h4>2️⃣ Negative</h4>
 
                 ${exampleBox(
@@ -1471,7 +1357,6 @@ function buildCategory2() {
                     "میں کرکٹ نہیں کھیل رہا تھا۔"
                 )}
 
-
                 <h4>3️⃣ Interrogative</h4>
 
                 ${exampleBox(
@@ -1479,7 +1364,6 @@ function buildCategory2() {
                     "ڇا مان ڪرڪيٽ کيڏي رهيو هئس؟",
                     "کیا میں کرکٹ کھیل رہا تھا؟"
                 )}
-
 
                 <h4>4️⃣ Negative Interrogative</h4>
 
@@ -1492,10 +1376,6 @@ function buildCategory2() {
             </div>
 
 
-            <!-- =========================================
-                 FUTURE CONTINUOUS
-            ========================================== -->
-
             <div class="lesson-card">
 
                 <h3>🟢 Future Continuous</h3>
@@ -1503,7 +1383,6 @@ function buildCategory2() {
                 <div class="pattern">
                     Subject + will be + V-ing
                 </div>
-
 
                 <h4>1️⃣ Affirmative</h4>
 
@@ -1513,7 +1392,6 @@ function buildCategory2() {
                     "میں کرکٹ کھیل رہا ہوں گا۔"
                 )}
 
-
                 <h4>2️⃣ Negative</h4>
 
                 ${exampleBox(
@@ -1521,7 +1399,6 @@ function buildCategory2() {
                     "مان ڪرڪيٽ نه کيڏي رهيو هوندس.",
                     "میں کرکٹ نہیں کھیل رہا ہوں گا۔"
                 )}
-
 
                 <h4>3️⃣ Interrogative</h4>
 
@@ -1531,21 +1408,16 @@ function buildCategory2() {
                     "کیا میں کرکٹ کھیل رہا ہوں گا؟"
                 )}
 
-
                 <h4>4️⃣ Negative Interrogative</h4>
 
                 ${exampleBox(
                     "Will I not be playing cricket?",
                     "ڇا مان ڪرڪيٽ نه کيڏي رهيو هوندس؟",
-                    "کیا میں کرکٹ نہیں کھیل رہا ہوں گا؟"
+                    "کیا میں کرکٹ نہیں کھیل رہا ہوں گا۔"
                 )}
 
             </div>
 
-
-            <!-- =================================================
-                 SIMPLE VS CONTINUOUS
-            ================================================== -->
 
             <div class="lesson-card">
 
@@ -1561,7 +1433,6 @@ function buildCategory2() {
                     👉 This tells us about a usual or general action.
                 </p>
 
-
                 ${exampleBox(
                     "I am playing cricket.",
                     "مان هن وقت ڪرڪيٽ کيڏي رهيو آهيان.",
@@ -1575,36 +1446,17 @@ function buildCategory2() {
             </div>
 
 
-            <!-- =================================================
-                 FOUR FORMS
-            ================================================== -->
-
             <div class="important">
 
                 <h3>⭐ Remember the Four Forms</h3>
 
-                <p>
-                    1️⃣ Affirmative
-                </p>
-
-                <p>
-                    2️⃣ Negative
-                </p>
-
-                <p>
-                    3️⃣ Interrogative
-                </p>
-
-                <p>
-                    4️⃣ Negative Interrogative
-                </p>
+                <p>1️⃣ Affirmative</p>
+                <p>2️⃣ Negative</p>
+                <p>3️⃣ Interrogative</p>
+                <p>4️⃣ Negative Interrogative</p>
 
             </div>
 
-
-            <!-- =========================================
-                 30 SINDHI TENSE PRACTICE SENTENCES
-            ========================================== -->
 
             ${buildPracticeArea(
                 "مشق — صحيح انگريزي جملو سڃاڻو",
@@ -1622,6 +1474,8 @@ function buildCategory2() {
         </div>
     `;
 }
+
+
 // ======================================================
 // CATEGORY 3
 // SYNONYMS & ANTONYMS
@@ -1875,10 +1729,6 @@ function buildCategory3() {
     ];
 
 
-    // ==================================================
-    // LESSON
-    // ==================================================
-
     let html = `
 
         <div class="lesson">
@@ -1890,7 +1740,6 @@ function buildCategory3() {
             <p class="lesson-intro">
                 🌱 Improve Your Vocabulary
             </p>
-
 
             <div class="important">
 
@@ -1910,7 +1759,6 @@ function buildCategory3() {
 
             </div>
 
-
             <div class="important">
 
                 <h3>
@@ -1929,17 +1777,12 @@ function buildCategory3() {
 
             </div>
 
-
             <h2>
                 📚 30 Useful Words
             </h2>
 
     `;
 
-
-    // ==================================================
-    // VOCABULARY WORDS
-    // ==================================================
 
     words.forEach((item, index) => {
 
@@ -1948,79 +1791,59 @@ function buildCategory3() {
             <div class="lesson-card">
 
                 <h3>
-
                     ${index + 1}.
-                    
                     <span style="
                         font-size: 30px;
                         font-weight: 900;
                     ">
                         ${item.word}
                     </span>
-
                 </h3>
-
 
                 <div style="
                     font-size: 22px;
                     font-weight: 800;
                     margin: 12px 0;
                 ">
-
                     🟢 Synonym:
-
                     <strong>
                         ${item.synonym}
                     </strong>
-
                 </div>
-
 
                 <div style="
                     font-size: 22px;
                     font-weight: 800;
                     margin: 12px 0;
                 ">
-
                     🔴 Antonym:
-
                     <strong>
                         ${item.antonym}
                     </strong>
-
                 </div>
-
 
                 <div style="
                     font-size: 21px;
                     font-weight: 700;
                     margin: 12px 0;
                 ">
-
                     سنڌي:
                     ${item.sindhi}
-
                 </div>
-
 
                 <div style="
                     font-size: 21px;
                     font-weight: 700;
                     margin: 12px 0;
                 ">
-
                     اردو:
                     ${item.urdu}
-
                 </div>
-
 
                 <button
                     class="listen-btn"
                     data-text="${item.word}">
-
                     🔊 Listen
-
                 </button>
 
             </div>
@@ -2029,10 +1852,6 @@ function buildCategory3() {
 
     });
 
-
-    // ==================================================
-    // PRACTICE
-    // ==================================================
 
     html += `
 
@@ -2051,10 +1870,6 @@ function buildCategory3() {
     `;
 
 
-    // ==================================================
-    // 30 QUESTIONS
-    // ==================================================
-
     words.forEach((item, index) => {
 
         const isSynonym = index % 2 === 0;
@@ -2064,9 +1879,7 @@ function buildCategory3() {
                 ? item.synonym
                 : item.antonym;
 
-
         let options;
-
 
         if (isSynonym) {
 
@@ -2086,8 +1899,6 @@ function buildCategory3() {
 
         }
 
-
-        // Shuffle the answers
         options.sort(() => Math.random() - 0.5);
 
 
@@ -2113,7 +1924,6 @@ function buildCategory3() {
                     </strong>
                 </p>
 
-
                 <button
                     class="practice-option"
                     onclick="vocabularyAnswer(
@@ -2121,11 +1931,8 @@ function buildCategory3() {
                         '${options[0]}',
                         '${correctAnswer}'
                     )">
-
                     ${options[0]}
-
                 </button>
-
 
                 <button
                     class="practice-option"
@@ -2134,11 +1941,8 @@ function buildCategory3() {
                         '${options[1]}',
                         '${correctAnswer}'
                     )">
-
                     ${options[1]}
-
                 </button>
-
 
                 <button
                     class="practice-option"
@@ -2147,11 +1951,8 @@ function buildCategory3() {
                         '${options[2]}',
                         '${correctAnswer}'
                     )">
-
                     ${options[2]}
-
                 </button>
-
 
                 <div class="practice-feedback">
                 </div>
@@ -2162,10 +1963,6 @@ function buildCategory3() {
 
     });
 
-
-    // ==================================================
-    // REMEMBER
-    // ==================================================
 
     html += `
 
@@ -2220,6 +2017,145 @@ function buildCategory3() {
 
 
 // ======================================================
+// CATEGORY 4
+// SENTENCE PATTERNS
+// ======================================================
+
+function buildCategory4() {
+
+    let html = `
+
+        <div class="lesson">
+
+            <h2>
+                4. Sentence Patterns
+            </h2>
+
+            <p class="lesson-intro">
+                🌱 Learn the pattern first — then learn the sentence.
+            </p>
+
+            <div class="important">
+
+                <h3>
+                    📘 What is a Sentence Pattern?
+                </h3>
+
+                <p>
+                    A sentence pattern shows the appropriate
+                    arrangement or order of words to make a
+                    meaningful sentence.
+                </p>
+
+                <p>
+                    Learn the pattern first. Then use it in
+                    real-life English.
+                </p>
+
+            </div>
+
+    `;
+
+
+    // ==================================================
+    // PATTERN CARDS
+    // ==================================================
+
+    sentencePatterns.forEach((item, index) => {
+
+        html += `
+
+            <div class="lesson-card">
+
+                <h3>
+                    🔹 ${item.title}
+                </h3>
+
+                <div class="pattern">
+                    ${item.pattern}
+                </div>
+
+                <p>
+                    ${item.explanation}
+                </p>
+
+        `;
+
+
+        // ==================================================
+        // EXAMPLES
+        // ==================================================
+
+        item.examples.forEach(example => {
+
+            html += `
+
+                <div class="example">
+
+                    <div class="english">
+                        🇬🇧 ${example}
+                    </div>
+
+                    <button
+                        class="listen-btn"
+                        data-text="${example}">
+                        🔊 Listen
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+
+        html += `
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `
+
+            <div class="important">
+
+                <h3>
+                    ⭐ Remember
+                </h3>
+
+                <p>
+                    Pattern → Meaning → Example → Practice
+                </p>
+
+                <p>
+                    Learn the arrangement of words first.
+                    Then create your own sentences.
+                </p>
+
+            </div>
+
+
+            <button
+                class="lesson-back"
+                onclick="backToCategories()">
+
+                ← BACK TO CATEGORIES
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    return html;
+}
+
+
+// ======================================================
 // CATEGORY 3 — PRACTICE ANSWER
 // ======================================================
 
@@ -2235,7 +2171,6 @@ function vocabularyAnswer(button, selected, correct) {
         question.querySelectorAll(".practice-option");
 
 
-    // Disable all options
     options.forEach(option => {
 
         option.disabled = true;
@@ -2243,7 +2178,6 @@ function vocabularyAnswer(button, selected, correct) {
     });
 
 
-    // Correct answer
     if (selected === correct) {
 
         feedback.innerHTML =
@@ -2254,8 +2188,6 @@ function vocabularyAnswer(button, selected, correct) {
 
     }
 
-
-    // Wrong answer
     else {
 
         feedback.innerHTML =
@@ -2265,7 +2197,6 @@ function vocabularyAnswer(button, selected, correct) {
             "❌ " + selected;
 
 
-        // Show the correct answer
         options.forEach(option => {
 
             if (
@@ -2282,6 +2213,7 @@ function vocabularyAnswer(button, selected, correct) {
     }
 
 }
+
 
 // ======================================================
 // PRACTICE ANSWER
@@ -2308,7 +2240,9 @@ function practiceAnswer(button, correct, questionId) {
 
 
     options.forEach(option => {
+
         option.disabled = true;
+
     });
 
 
@@ -2317,10 +2251,13 @@ function practiceAnswer(button, correct, questionId) {
         feedback.innerHTML =
             "✅ صحيح! تمام سٺو.";
 
-    } else {
+    }
+
+    else {
 
         feedback.innerHTML =
             "❌ غلط. ٻيهر نمونو ڏسو ۽ ڪوشش ڪريو.";
+
     }
 
 }
@@ -2341,4 +2278,3 @@ window.addEventListener("load", function () {
     }
 
 });
- 
