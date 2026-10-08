@@ -1,4 +1,3 @@
-
 // ======================================================
 // 📚 LET'S IMPROVE ENGLISH
 // COMPLETE OFFLINE SCRIPT
@@ -200,9 +199,14 @@ function exampleBox(english, sindhi, urdu) {
 // ======================================================
 // PRACTICE DATA — CATEGORY 1
 // SIMPLE SENTENCES / NO ACTION
+// 30 QUESTIONS
 // ======================================================
 
 const simplePractice = [
+
+    // --------------------------------------------------
+    // ORIGINAL 15
+    // --------------------------------------------------
 
     {
         sindhi: "مان خوش آهيان.",
@@ -352,6 +356,161 @@ const simplePractice = [
             "It is cold.",
             "It cold."
         ]
+    },
+
+
+    // --------------------------------------------------
+    // NEW 15
+    // --------------------------------------------------
+
+    {
+        sindhi: "مان تيار آهيان.",
+        correct: "I am ready.",
+        options: [
+            "I ready am.",
+            "I am ready.",
+            "I am read."
+        ]
+    },
+
+    {
+        sindhi: "هو منهنجو دوست آهي.",
+        correct: "He is my friend.",
+        options: [
+            "He my friend is.",
+            "He is my friend.",
+            "He is my friends."
+        ]
+    },
+
+    {
+        sindhi: "هوءَ تمام مهربان آهي.",
+        correct: "She is very kind.",
+        options: [
+            "She very kind is.",
+            "She is very kind.",
+            "She is very kindly."
+        ]
+    },
+
+    {
+        sindhi: "اسان خوش آهيون.",
+        correct: "We are happy.",
+        options: [
+            "We are happy.",
+            "We happy are.",
+            "We is happy."
+        ]
+    },
+
+    {
+        sindhi: "اهي گهر ۾ آهن.",
+        correct: "They are at home.",
+        options: [
+            "They at home are.",
+            "They is at home.",
+            "They are at home."
+        ]
+    },
+
+    {
+        sindhi: "مان اسڪول ۾ هئس.",
+        correct: "I was at school.",
+        options: [
+            "I was at school.",
+            "I at school was.",
+            "I were at school."
+        ]
+    },
+
+    {
+        sindhi: "هوءَ ڪالهه بيمار هئي.",
+        correct: "She was sick yesterday.",
+        options: [
+            "She sick was yesterday.",
+            "She was sick yesterday.",
+            "She were sick yesterday."
+        ]
+    },
+
+    {
+        sindhi: "اسان سڀاڻي تيار هونداسين.",
+        correct: "We will be ready tomorrow.",
+        options: [
+            "We will ready be tomorrow.",
+            "We will be ready tomorrow.",
+            "We are be ready tomorrow."
+        ]
+    },
+
+    {
+        sindhi: "هن وٽ هڪ قلم آهي.",
+        correct: "He has a pen.",
+        options: [
+            "He a pen has.",
+            "He have a pen.",
+            "He has a pen."
+        ]
+    },
+
+    {
+        sindhi: "اسان وٽ ڪافي وقت آهي.",
+        correct: "We have enough time.",
+        options: [
+            "We enough time have.",
+            "We have enough time.",
+            "We has enough time."
+        ]
+    },
+
+    {
+        sindhi: "ڪمري ۾ ٽي ڪرسيون آهن.",
+        correct: "There are three chairs in the room.",
+        options: [
+            "There are three chairs in the room.",
+            "There is three chairs in the room.",
+            "There three chairs are in the room."
+        ]
+    },
+
+    {
+        sindhi: "ميز تي هڪ موبائل فون آهي.",
+        correct: "There is a mobile phone on the table.",
+        options: [
+            "There are a mobile phone on the table.",
+            "There is a mobile phone on the table.",
+            "There a mobile phone is on the table."
+        ]
+    },
+
+    {
+        sindhi: "اڄ موسم سٺي آهي.",
+        correct: "The weather is fine today.",
+        options: [
+            "The weather fine is today.",
+            "The weather are fine today.",
+            "The weather is fine today."
+        ]
+    },
+
+    {
+        sindhi: "ڇا هو گهر ۾ آهي؟",
+        correct: "Is he at home?",
+        options: [
+            "He is at home?",
+            "Is he at home?",
+            "Is at home he?"
+        ]
+    },
+
+    {
+        sindhi: "ڇا توهان وٽ ڪتاب آهي؟",
+        correct: "Do you have a book?",
+        options: [
+            "Do you have a book?",
+            "Do you has a book?",
+            "You do have a book?"
+        ]
     }
 
 ];
@@ -360,9 +519,14 @@ const simplePractice = [
 // ======================================================
 // PRACTICE DATA — CATEGORY 2
 // TENSES
+// 30 QUESTIONS
 // ======================================================
 
 const tensePractice = [
+
+    // --------------------------------------------------
+    // ORIGINAL 15
+    // --------------------------------------------------
 
     {
         sindhi: "مان ڪرڪيٽ کيڏان ٿو.",
@@ -511,6 +675,161 @@ const tensePractice = [
             "I am playing cricket now.",
             "I playing cricket am now.",
             "I am play cricket now."
+        ]
+    },
+
+
+    // --------------------------------------------------
+    // NEW 15
+    // --------------------------------------------------
+
+    {
+        sindhi: "مان روزانو اسڪول وڃان ٿو.",
+        correct: "I go to school every day.",
+        options: [
+            "I go to school every day.",
+            "I goes to school every day.",
+            "I going to school every day."
+        ]
+    },
+
+    {
+        sindhi: "هو انگريزي پڙهي ٿو.",
+        correct: "He studies English.",
+        options: [
+            "He study English.",
+            "He studies English.",
+            "He studying English."
+        ]
+    },
+
+    {
+        sindhi: "ڇا هوءَ هر صبح چانهه پيئي ٿي؟",
+        correct: "Does she drink tea every morning?",
+        options: [
+            "Does she drink tea every morning?",
+            "Does she drinks tea every morning?",
+            "She does drink tea every morning?"
+        ]
+    },
+
+    {
+        sindhi: "اسان آچر تي ڪم نه ڪندا آهيون.",
+        correct: "We do not work on Sunday.",
+        options: [
+            "We does not work on Sunday.",
+            "We do not work on Sunday.",
+            "We not do work on Sunday."
+        ]
+    },
+
+    {
+        sindhi: "هن ڪالهه هڪ خط لکيو.",
+        correct: "He wrote a letter yesterday.",
+        options: [
+            "He write a letter yesterday.",
+            "He wrote a letter yesterday.",
+            "He writing a letter yesterday."
+        ]
+    },
+
+    {
+        sindhi: "هوءَ گذريل رات ٽي وي ڏٺي.",
+        correct: "She watched TV last night.",
+        options: [
+            "She watched TV last night.",
+            "She watch TV last night.",
+            "She watching TV last night."
+        ]
+    },
+
+    {
+        sindhi: "ڇا انهن راند کٽي؟",
+        correct: "Did they win the game?",
+        options: [
+            "Did they won the game?",
+            "Did they win the game?",
+            "They did won the game?"
+        ]
+    },
+
+    {
+        sindhi: "مان سڀاڻي پنهنجي دوست سان ملندس.",
+        correct: "I will meet my friend tomorrow.",
+        options: [
+            "I will meet my friend tomorrow.",
+            "I will met my friend tomorrow.",
+            "I meet will my friend tomorrow."
+        ]
+    },
+
+    {
+        sindhi: "هو ايندڙ هفتي سفر ڪندو.",
+        correct: "He will travel next week.",
+        options: [
+            "He will travel next week.",
+            "He will traveled next week.",
+            "He travel will next week."
+        ]
+    },
+
+    {
+        sindhi: "ڇا تون مون کي فون ڪندين؟",
+        correct: "Will you call me?",
+        options: [
+            "You will call me?",
+            "Will you call me?",
+            "Will you called me?"
+        ]
+    },
+
+    {
+        sindhi: "هوءَ هن وقت ڪتاب پڙهي رهي آهي.",
+        correct: "She is reading a book now.",
+        options: [
+            "She reading a book now.",
+            "She is reading a book now.",
+            "She is read a book now."
+        ]
+    },
+
+    {
+        sindhi: "اسان هن وقت ڪم نه ڪري رهيا آهيون.",
+        correct: "We are not working now.",
+        options: [
+            "We are not working now.",
+            "We not are working now.",
+            "We are not work now."
+        ]
+    },
+
+    {
+        sindhi: "ڇا اهي باغ ۾ کيڏي رهيا آهن؟",
+        correct: "Are they playing in the garden?",
+        options: [
+            "Are they playing in the garden?",
+            "Are they play in the garden?",
+            "They are playing in the garden?"
+        ]
+    },
+
+    {
+        sindhi: "مان ڪالهه شام پڙهي رهيو هئس.",
+        correct: "I was studying yesterday evening.",
+        options: [
+            "I was studying yesterday evening.",
+            "I were studying yesterday evening.",
+            "I was study yesterday evening."
+        ]
+    },
+
+    {
+        sindhi: "اهي سڀاڻي هن وقت سفر ڪري رهيا هوندا.",
+        correct: "They will be traveling at this time tomorrow.",
+        options: [
+            "They will traveling at this time tomorrow.",
+            "They will be traveling at this time tomorrow.",
+            "They are be traveling at this time tomorrow."
         ]
     }
 
@@ -1217,7 +1536,7 @@ function buildCategory2() {
                 ${exampleBox(
                     "Will I be playing cricket?",
                     "ڇا مان ڪرڪيٽ کيڏي رهيو هوندس؟",
-                    "کیا مان کرکٹ کھیل رہا ہوں گا؟"
+                    "کیا میں کرکٹ کھیل رہا ہوں گا؟"
                 )}
 
 
@@ -1292,7 +1611,7 @@ function buildCategory2() {
 
 
             <!-- =========================================
-                 15 SINDHI TENSE PRACTICE SENTENCES
+                 30 SINDHI TENSE PRACTICE SENTENCES
             ========================================== -->
 
             ${buildPracticeArea(
