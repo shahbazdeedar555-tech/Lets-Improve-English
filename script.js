@@ -69,9 +69,9 @@ function openCategory(categoryNumber) {
 else if (categoryNumber === 7) {
     categoryScreen.innerHTML = buildPronunciationCategory();
 }
+
     setupLessonButtons();
 }
-
 
 // ======================================================
 // BACK TO CATEGORIES
@@ -2251,7 +2251,271 @@ function practiceAnswer(button, correct, questionId) {
     }
 
 }
+// ======================================================
+// PRONUNCIATION PRACTICE
+// SYLLABLES + PRIMARY AND SECONDARY STRESS
+// ======================================================
 
+function buildPronunciationCategory() {
+
+    const words = [
+        {
+            word: "breakfast",
+            syllables: [
+                { text: "BREAK", stress: "primary" },
+                { text: "fast", stress: "" }
+            ],
+            meaning: "ناشتو / ناشتہ"
+        },
+        {
+            word: "masculine",
+            syllables: [
+                { text: "MAS", stress: "primary" },
+                { text: "cu", stress: "" },
+                { text: "line", stress: "" }
+            ],
+            meaning: "مذڪر / مذکر"
+        },
+        {
+            word: "feminine",
+            syllables: [
+                { text: "FEM", stress: "primary" },
+                { text: "i", stress: "" },
+                { text: "nine", stress: "" }
+            ],
+            meaning: "مونث / مؤنث"
+        },
+        {
+            word: "basketball",
+            syllables: [
+                { text: "BASK", stress: "primary" },
+                { text: "et", stress: "" },
+                { text: "BALL", stress: "secondary" }
+            ],
+            meaning: "هڪ راند / ایک کھیل"
+        },
+        {
+            word: "today",
+            syllables: [
+                { text: "to", stress: "" },
+                { text: "DAY", stress: "primary" }
+            ],
+            meaning: "اڄ / آج"
+        },
+        {
+            word: "tomorrow",
+            syllables: [
+                { text: "to", stress: "" },
+                { text: "MOR", stress: "primary" },
+                { text: "row", stress: "" }
+            ],
+            meaning: "سڀاڻي / کل"
+        },
+        {
+            word: "village",
+            syllables: [
+                { text: "VIL", stress: "primary" },
+                { text: "lage", stress: "" }
+            ],
+            meaning: "ڳوٺ / گاؤں"
+        },
+        {
+            word: "cabbage",
+            syllables: [
+                { text: "CAB", stress: "primary" },
+                { text: "bage", stress: "" }
+            ],
+            meaning: "بند گوبي / بند گوبھی"
+        },
+        {
+            word: "cricket",
+            syllables: [
+                { text: "CRICK", stress: "primary" },
+                { text: "et", stress: "" }
+            ],
+            meaning: "ڪرڪيٽ / کرکٹ"
+        },
+        {
+            word: "pronunciation",
+            syllables: [
+                { text: "pro", stress: "" },
+                { text: "NUN", stress: "secondary" },
+                { text: "ci", stress: "" },
+                { text: "A", stress: "primary" },
+                { text: "tion", stress: "" }
+            ],
+            meaning: "لفظن کي صحيح اچارڻ / درست تلفظ"
+        },
+        {
+            word: "communication",
+            syllables: [
+                { text: "com", stress: "" },
+                { text: "MU", stress: "secondary" },
+                { text: "ni", stress: "" },
+                { text: "CA", stress: "primary" },
+                { text: "tion", stress: "" }
+            ],
+            meaning: "رابطي جو عمل / رابطے کا عمل"
+        },
+        {
+            word: "academic",
+            syllables: [
+                { text: "AC", stress: "secondary" },
+                { text: "a", stress: "" },
+                { text: "DEM", stress: "primary" },
+                { text: "ic", stress: "" }
+            ],
+            meaning: "تعليمي / تعلیمی"
+        }
+    ];
+
+    let html = `
+        <div class="lesson">
+
+            <h2>Pronunciation Practice</h2>
+
+            <p class="lesson-intro">
+                🔊 Learn to pronounce English words correctly.
+            </p>
+
+            <div class="important">
+                <h3>1. What is a Syllable?</h3>
+                <p>
+                    A syllable is a beat or sound unit in a word.
+                </p>
+                <p>
+                    Example: BREAK-fast has two syllables.
+                </p>
+
+                <h3>2. Primary Stress /ˈ/</h3>
+                <p>
+                    Primary stress is the strongest syllable
+                    in a word.
+                </p>
+                <p>
+                    Example: to-DAY.
+                </p>
+
+                <h3>3. Secondary Stress /ˌ/</h3>
+                <p>
+                    Secondary stress is weaker than primary stress.
+                    It can occur in longer words.
+                </p>
+            </div>
+
+            <div class="important">
+                <p>
+                    <strong style="color:#b71c1c;">
+                        🔴 RED = PRIMARY STRESS
+                    </strong>
+                </p>
+                <p>
+                    <strong style="color:#d97706;">
+                        🟠 ORANGE = SECONDARY STRESS
+                    </strong>
+                </p>
+                <p>
+                    Unmarked syllables are not stressed.
+                    Stress patterns may vary by accent.
+                </p>
+            </div>
+
+            <h2>Word-by-Word Practice</h2>
+    `;
+
+    words.forEach((item, index) => {
+
+        let syllableHTML = "";
+
+        item.syllables.forEach(part => {
+
+            let style = `
+                display: inline-block;
+                padding: 6px 8px;
+                margin: 3px;
+                border-radius: 6px;
+                font-size: 22px;
+                line-height: 1.5;
+            `;
+
+            if (part.stress === "primary") {
+                style += `
+                    background: #b71c1c;
+                    color: white;
+                    font-weight: 900;
+                    border: 2px solid #b71c1c;
+                `;
+            } else if (part.stress === "secondary") {
+                style += `
+                    background: #ef9a32;
+                    color: #222;
+                    font-weight: 800;
+                    border: 2px solid #ef9a32;
+                `;
+            } else {
+                style += `
+                    background: #e8eee9;
+                    color: #173F35;
+                    font-weight: 600;
+                    border: 2px solid #cbd8cf;
+                `;
+            }
+
+            syllableHTML += `
+                <span style="${style}">
+                    ${part.text}
+                </span>
+            `;
+        });
+
+        html += `
+            <div class="lesson-card">
+
+                <h3>${index + 1}. ${item.word}</h3>
+
+                <div style="
+                    margin: 12px 0;
+                    line-height: 2.1;
+                ">
+                    ${syllableHTML}
+                </div>
+
+                <p>
+                    <strong>Meaning:</strong>
+                    ${item.meaning}
+                </p>
+
+                <button
+                    class="listen-btn"
+                    data-text="${item.word}">
+                    🔊 Listen
+                </button>
+
+            </div>
+        `;
+    });
+
+    html += `
+            <div class="important">
+                <h3>How to Practise</h3>
+                <p>1. Listen to the complete word.</p>
+                <p>2. Read each syllable slowly.</p>
+                <p>3. Say the red syllable most strongly.</p>
+                <p>4. Notice the weaker orange syllable.</p>
+                <p>5. Repeat the complete word aloud.</p>
+            </div>
+
+            <button
+                class="lesson-back"
+                onclick="backToCategories()">
+                ← BACK TO CATEGORIES
+            </button>
+
+        </div>
+    `;
+
+    return html;
+}
 
 // ======================================================
 // START
