@@ -65,20 +65,10 @@ function openCategory(categoryNumber) {
         `;
     }
 
-    else if (categoryNumber === 7) {
-        categoryScreen.innerHTML = `
-            <div class="lesson">
-                <h2>📘 Pronunciation Practice</h2>
-                <p class="lesson-intro">
-                    This lesson will be added soon.
-                </p>
-                <button class="lesson-back" onclick="backToCategories()">
-                    ← BACK TO CATEGORIES
-                </button>
-            </div>
-        `;
-    }
-
+    
+else if (categoryNumber === 7) {
+    categoryScreen.innerHTML = buildPronunciationCategory();
+}
     setupLessonButtons();
 }
 
