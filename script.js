@@ -2252,282 +2252,348 @@ function practiceAnswer(button, correct, questionId) {
 
 }
 
-// ======================================================
-// PRONUNCIATION PRACTICE
-// SYLLABLES + PRIMARY AND SECONDARY STRESS
-// ======================================================
+
+
+
+JavaScript
 
 function buildPronunciationCategory() {
-
     const words = [
-
-        // EVERYDAY WORDS
-
-        { word: "breakfast", syllables: [
-            { text: "BREAK", stress: "primary" },
-            { text: "fast", stress: "" }
-        ], meaning: "ناشتو / ناشتہ" },
-
-        { word: "today", syllables: [
-            { text: "to", stress: "" },
-            { text: "DAY", stress: "primary" }
-        ], meaning: "اڄ / آج" },
-
-        { word: "tomorrow", syllables: [
-            { text: "to", stress: "" },
-            { text: "MOR", stress: "primary" },
-            { text: "row", stress: "" }
-        ], meaning: "سڀاڻي / کل" },
-
-        { word: "yesterday", syllables: [
-            { text: "YES", stress: "primary" },
-            { text: "ter", stress: "" },
-            { text: "day", stress: "" }
-        ], meaning: "ڪالهه / کل گزرا ہوا دن" },
-
-        { word: "village", syllables: [
-            { text: "VIL", stress: "primary" },
-            { text: "lage", stress: "" }
-        ], meaning: "ڳوٺ / گاؤں" },
-
-        { word: "cabbage", syllables: [
-            { text: "CAB", stress: "primary" },
-            { text: "bage", stress: "" }
-        ], meaning: "بند گوبي / بند گوبھی" },
-
-        { word: "basketball", syllables: [
-            { text: "BASK", stress: "primary" },
-            { text: "et", stress: "" },
-            { text: "ball", stress: "" }
-        ], meaning: "هڪ راند / ایک کھیل" },
-
-        { word: "cricket", syllables: [
-            { text: "CRICK", stress: "primary" },
-            { text: "et", stress: "" }
-        ], meaning: "ڪرڪيٽ / کرکٹ" },
-
-        { word: "muscle", syllables: [
-            { text: "MUS", stress: "primary" },
-            { text: "cle", stress: "" }
-        ], meaning: "عضلو / پٹھا" },
-
-        // SCHOOL AND EDUCATION
-
-        { word: "academic", syllables: [
-            { text: "ac", stress: "" },
-            { text: "a", stress: "" },
-            { text: "DEM", stress: "primary" },
-            { text: "ic", stress: "" }
-        ], meaning: "تعليمي / تعلیمی" },
-
-        { word: "education", syllables: [
-            { text: "ed", stress: "" },
-            { text: "u", stress: "" },
-            { text: "CA", stress: "primary" },
-            { text: "tion", stress: "" }
-        ], meaning: "تعليم / تعلیم" },
-
-        { word: "teacher", syllables: [
-            { text: "TEACH", stress: "primary" },
-            { text: "er", stress: "" }
-        ], meaning: "استاد / استاد" },
-
-        { word: "student", syllables: [
-            { text: "STU", stress: "primary" },
-            { text: "dent", stress: "" }
-        ], meaning: "شاگرد / طالب علم" },
-
-        { word: "computer", syllables: [
-            { text: "com", stress: "" },
-            { text: "PU", stress: "primary" },
-            { text: "ter", stress: "" }
-        ], meaning: "ڪمپيوٽر / کمپیوٹر" },
-
-        { word: "examination", syllables: [
-            { text: "ex", stress: "" },
-            { text: "am", stress: "" },
-            { text: "i", stress: "" },
-            { text: "NA", stress: "primary" },
-            { text: "tion", stress: "" }
-        ], meaning: "امتحان / امتحان" },
-
-        { word: "dictionary", syllables: [
-            { text: "DIC", stress: "primary" },
-            { text: "tion", stress: "" },
-            { text: "ar", stress: "" },
-            { text: "y", stress: "" }
-        ], meaning: "لغت / لغت" },
-
-        // LONGER WORDS
-
-        { word: "masculine", syllables: [
-            { text: "MAS", stress: "primary" },
-            { text: "cu", stress: "" },
-            { text: "line", stress: "" }
-        ], meaning: "مذڪر / مذکر" },
-
-        { word: "feminine", syllables: [
-            { text: "FEM", stress: "primary" },
-            { text: "i", stress: "" },
-            { text: "nine", stress: "" }
-        ], meaning: "مونث / مؤنث" },
-
-        { word: "pronunciation", syllables: [
-            { text: "pro", stress: "" },
-            { text: "NUN", stress: "primary" },
-            { text: "ci", stress: "" },
-            { text: "a", stress: "" },
-            { text: "tion", stress: "" }
-        ], meaning: "صحيح اچار / درست تلفظ" },
-
-        { word: "communication", syllables: [
-            { text: "com", stress: "" },
-            { text: "mu", stress: "" },
-            { text: "ni", stress: "" },
-            { text: "CA", stress: "primary" },
-            { text: "tion", stress: "" }
-        ], meaning: "رابطو / رابطہ" },
-
-        { word: "information", syllables: [
-            { text: "in", stress: "" },
-            { text: "for", stress: "" },
-            { text: "MA", stress: "primary" },
-            { text: "tion", stress: "" }
-        ], meaning: "معلومات / معلومات" },
-
-        { word: "important", syllables: [
-            { text: "im", stress: "" },
-            { text: "POR", stress: "primary" },
-            { text: "tant", stress: "" }
-        ], meaning: "اهم / اہم" },
-
-        { word: "beautiful", syllables: [
-            { text: "BEAU", stress: "primary" },
-            { text: "ti", stress: "" },
-            { text: "ful", stress: "" }
-        ], meaning: "سهڻو / خوبصورت" },
-
-        { word: "vegetable", syllables: [
-            { text: "VEG", stress: "primary" },
-            { text: "e", stress: "" },
-            { text: "ta", stress: "" },
-            { text: "ble", stress: "" }
-        ], meaning: "ڀاڄي / سبزی" },
-
-        { word: "photography", syllables: [
-            { text: "pho", stress: "" },
-            { text: "TOG", stress: "primary" },
-            { text: "ra", stress: "" },
-            { text: "phy", stress: "" }
-        ], meaning: "فوٽوگرافي / عکاسی" },
-
-        { word: "responsibility", syllables: [
-            { text: "re", stress: "" },
-            { text: "spon", stress: "" },
-            { text: "si", stress: "" },
-            { text: "BIL", stress: "primary" },
-            { text: "i", stress: "" },
-            { text: "ty", stress: "" }
-        ], meaning: "ذميواري / ذمہ داری" },
-
-        { word: "development", syllables: [
-            { text: "de", stress: "" },
-            { text: "VEL", stress: "primary" },
-            { text: "op", stress: "" },
-            { text: "ment", stress: "" }
-        ], meaning: "ترقي / ترقی" },
-
-        { word: "environment", syllables: [
-            { text: "en", stress: "" },
-            { text: "VI", stress: "primary" },
-            { text: "ron", stress: "" },
-            { text: "ment", stress: "" }
-        ], meaning: "ماحول / ماحول" },
-
-        { word: "opportunity", syllables: [
-            { text: "op", stress: "" },
-            { text: "por", stress: "" },
-            { text: "TU", stress: "primary" },
-            { text: "ni", stress: "" },
-            { text: "ty", stress: "" }
-        ], meaning: "موقعو / موقع" }
-
+        {
+            word: "breakfast",
+            syllables: [
+                { text: "BREAK", stress: "primary" },
+                { text: "fast", stress: "" }
+            ],
+            meaning: "ناشتو / ناشتہ"
+        },
+        {
+            word: "masculine",
+            syllables: [
+                { text: "MAS", stress: "primary" },
+                { text: "cu", stress: "" },
+                { text: "line", stress: "" }
+            ],
+            meaning: "مذڪر / पुल्लिंग"
+        },
+        {
+            word: "feminine",
+            syllables: [
+                { text: "FEM", stress: "primary" },
+                { text: "i", stress: "" },
+                { text: "nine", stress: "" }
+            ],
+            meaning: "مؤنث / स्त्रीलिंग"
+        },
+        {
+            word: "basketball",
+            syllables: [
+                { text: "BAS", stress: "primary" },
+                { text: "ket", stress: "" },
+                { text: "ball", stress: "" }
+            ],
+            meaning: "باسڪيٽ بال / बास्केटबॉल"
+        },
+        {
+            word: "today",
+            syllables: [
+                { text: "to", stress: "" },
+                { text: "DAY", stress: "primary" }
+            ],
+            meaning: "اڄ / आज"
+        },
+        {
+            word: "tomorrow",
+            syllables: [
+                { text: "to", stress: "" },
+                { text: "MOR", stress: "primary" },
+                { text: "row", stress: "" }
+            ],
+            meaning: "سڀاڻي / कल"
+        },
+        {
+            word: "yesterday",
+            syllables: [
+                { text: "YES", stress: "primary" },
+                { text: "ter", stress: "" },
+                { text: "day", stress: "" }
+            ],
+            meaning: "ڪالهه / बीता कल"
+        },
+        {
+            word: "village",
+            syllables: [
+                { text: "VIL", stress: "primary" },
+                { text: "lage", stress: "" }
+            ],
+            meaning: "ڳوٺ / गाँव"
+        },
+        {
+            word: "cabbage",
+            syllables: [
+                { text: "CAB", stress: "primary" },
+                { text: "bage", stress: "" }
+            ],
+            meaning: "بند گوبي / पत्ता गोभी"
+        },
+        {
+            word: "cricket",
+            syllables: [
+                { text: "CRICK", stress: "primary" },
+                { text: "et", stress: "" }
+            ],
+            meaning: "ڪرڪيٽ / क्रिकेट"
+        },
+        {
+            word: "muscle",
+            syllables: [
+                { text: "MUS", stress: "primary" },
+                { text: "cle", stress: "" }
+            ],
+            meaning: "عضلو / मांसपेशी"
+        },
+        {
+            word: "academic",
+            syllables: [
+                { text: "ac", stress: "" },
+                { text: "a", stress: "" },
+                { text: "DEM", stress: "primary" },
+                { text: "ic", stress: "" }
+            ],
+            meaning: "تعليمي / शैक्षणिक"
+        },
+        {
+            word: "education",
+            syllables: [
+                { text: "ed", stress: "" },
+                { text: "u", stress: "" },
+                { text: "CA", stress: "primary" },
+                { text: "tion", stress: "" }
+            ],
+            meaning: "تعليم / शिक्षा"
+        },
+        {
+            word: "teacher",
+            syllables: [
+                { text: "TEACH", stress: "primary" },
+                { text: "er", stress: "" }
+            ],
+            meaning: "استاد / शिक्षक"
+        },
+        {
+            word: "student",
+            syllables: [
+                { text: "STU", stress: "primary" },
+                { text: "dent", stress: "" }
+            ],
+            meaning: "شاگرد / विद्यार्थी"
+        },
+        {
+            word: "computer",
+            syllables: [
+                { text: "com", stress: "" },
+                { text: "PU", stress: "primary" },
+                { text: "ter", stress: "" }
+            ],
+            meaning: "ڪمپيوٽر / कंप्यूटर"
+        },
+        {
+            word: "examination",
+            syllables: [
+                { text: "ex", stress: "" },
+                { text: "am", stress: "" },
+                { text: "i", stress: "" },
+                { text: "NA", stress: "primary" },
+                { text: "tion", stress: "" }
+            ],
+            meaning: "امتحان / परीक्षा"
+        },
+        {
+            word: "dictionary",
+            syllables: [
+                { text: "DIC", stress: "primary" },
+                { text: "tion", stress: "" },
+                { text: "ar", stress: "" },
+                { text: "y", stress: "" }
+            ],
+            meaning: "لغت / शब्दकोश"
+        },
+        {
+            word: "pronunciation",
+            syllables: [
+                { text: "pro", stress: "" },
+                { text: "nun", stress: "" },
+                { text: "ci", stress: "" },
+                { text: "A", stress: "primary" },
+                { text: "tion", stress: "" }
+            ],
+            meaning: "تلفظ / उच्चारण"
+        },
+        {
+            word: "communication",
+            syllables: [
+                { text: "com", stress: "" },
+                { text: "mu", stress: "" },
+                { text: "ni", stress: "" },
+                { text: "CA", stress: "primary" },
+                { text: "tion", stress: "" }
+            ],
+            meaning: "رابطو / संचार"
+        },
+        {
+            word: "information",
+            syllables: [
+                { text: "in", stress: "" },
+                { text: "for", stress: "" },
+                { text: "MA", stress: "primary" },
+                { text: "tion", stress: "" }
+            ],
+            meaning: "معلومات / जानकारी"
+        },
+        {
+            word: "important",
+            syllables: [
+                { text: "im", stress: "" },
+                { text: "POR", stress: "primary" },
+                { text: "tant", stress: "" }
+            ],
+            meaning: "اهم / महत्वपूर्ण"
+        },
+        {
+            word: "beautiful",
+            syllables: [
+                { text: "BEAU", stress: "primary" },
+                { text: "ti", stress: "" },
+                { text: "ful", stress: "" }
+            ],
+            meaning: "خوبصورت / सुंदर"
+        },
+        {
+            word: "vegetable",
+            syllables: [
+                { text: "VEG", stress: "primary" },
+                { text: "ta", stress: "" },
+                { text: "ble", stress: "" }
+            ],
+            meaning: "ڀاڄي / सब्ज़ी"
+        },
+        {
+            word: "photography",
+            syllables: [
+                { text: "pho", stress: "" },
+                { text: "TOG", stress: "primary" },
+                { text: "ra", stress: "" },
+                { text: "phy", stress: "" }
+            ],
+            meaning: "ڦوٽوگرافي / फोटोग्राफी"
+        },
+        {
+            word: "responsibility",
+            syllables: [
+                { text: "re", stress: "" },
+                { text: "spon", stress: "" },
+                { text: "si", stress: "" },
+                { text: "BIL", stress: "primary" },
+                { text: "i", stress: "" },
+                { text: "ty", stress: "" }
+            ],
+            meaning: "ذميواري / ज़िम्मेदारी"
+        },
+        {
+            word: "development",
+            syllables: [
+                { text: "de", stress: "" },
+                { text: "VEL", stress: "primary" },
+                { text: "op", stress: "" },
+                { text: "ment", stress: "" }
+            ],
+            meaning: "ترقي / विकास"
+        },
+        {
+            word: "environment",
+            syllables: [
+                { text: "en", stress: "" },
+                { text: "VI", stress: "primary" },
+                { text: "ron", stress: "" },
+                { text: "ment", stress: "" }
+            ],
+            meaning: "ماحول / पर्यावरण"
+        },
+        {
+            word: "opportunity",
+            syllables: [
+                { text: "op", stress: "" },
+                { text: "por", stress: "" },
+                { text: "TU", stress: "primary" },
+                { text: "ni", stress: "" },
+                { text: "ty", stress: "" }
+            ],
+            meaning: "موقعو / अवसर"
+        }
     ];
 
     let html = `
         <div class="lesson">
-
-            <h2>Pronunciation Practice</h2>
+            <h2>7. Pronunciation Practice</h2>
 
             <p class="lesson-intro">
-                🔊 Listen • Learn Syllables • Practise Stress
+                Listen • Learn Syllables • Practise Primary Stress
             </p>
 
             <div class="important">
                 <h3>1. Syllable</h3>
-                <p>A syllable is a beat or sound unit in a word.</p>
+                <p>
+                    A syllable is a sound unit or beat in a word.
+                </p>
 
-                <h3>2. Primary Stress /ˈ/</h3>
-                <p>The strongest syllable in a word.</p>
+                <h3>2. Primary Stress</h3>
+                <p>
+                    Primary stress is the strongest syllable
+                    in a word.
+                </p>
 
-                <h3>3. Secondary Stress /ˌ/</h3>
-                <p>A weaker stress that may occur in longer words.
-                It is not necessary in every word.</p>
+                <p>
+                    <strong style="color:#b71c1c;">
+                        RED = PRIMARY STRESS
+                    </strong>
+                </p>
 
-                <p><strong style="color:#b71c1c;">
-                    🔴 RED = PRIMARY STRESS
-                </strong></p>
-
-                <p><strong style="color:#173F35;">
-                    Unmarked = Unstressed syllable
-                </strong></p>
+                <p>
+                    Other syllables are shown in light green.
+                </p>
             </div>
 
             <h2>Word-by-Word Practice</h2>
     `;
 
     words.forEach((item, index) => {
-
         let syllableHTML = "";
 
         item.syllables.forEach(part => {
-
-            let style = `
-                display:inline-block;
-                padding:6px 8px;
-                margin:3px;
-                border-radius:6px;
-                font-size:22px;
-                line-height:1.5;
-            `;
-
-            if (part.stress === "primary") {
-                style += `
+            const style = part.stress === "primary"
+                ? `
                     background:#b71c1c;
                     color:white;
                     font-weight:900;
                     border:2px solid #b71c1c;
-                `;
-            } else if (part.stress === "secondary") {
-                style += `
-                    background:#ef9a32;
-                    color:#222;
-                    font-weight:800;
-                    border:2px solid #ef9a32;
-                `;
-            } else {
-                style += `
+                `
+                : `
                     background:#e8eee9;
                     color:#173F35;
                     font-weight:600;
                     border:2px solid #cbd8cf;
                 `;
-            }
 
             syllableHTML += `
-                <span style="${style}">
-                    ${part.text}
-                </span>
+                <span style="
+                    display:inline-block;
+                    padding:6px 8px;
+                    margin:3px;
+                    border-radius:6px;
+                    font-size:22px;
+                    line-height:1.5;
+                    ${style}
+                ">${part.text}</span>
             `;
         });
 
@@ -2539,9 +2605,12 @@ function buildPronunciationCategory() {
                     ${syllableHTML}
                 </div>
 
-                <p><strong>Meaning:</strong> ${item.meaning}</p>
+                <p>
+                    <strong>Meaning:</strong> ${item.meaning}
+                </p>
 
-                <button class="listen-btn"
+                <button
+                    class="listen-btn"
                     data-text="${item.word}">
                     🔊 Listen
                 </button>
@@ -2553,16 +2622,16 @@ function buildPronunciationCategory() {
             <div class="important">
                 <h3>How to Practise</h3>
                 <p>1. Listen to the complete word.</p>
-                <p>2. Read the syllables slowly.</p>
+                <p>2. Read each syllable slowly.</p>
                 <p>3. Say the red syllable most strongly.</p>
                 <p>4. Repeat the complete word aloud.</p>
             </div>
 
-            <button class="lesson-back"
+            <button
+                class="lesson-back"
                 onclick="backToCategories()">
                 ← BACK TO CATEGORIES
             </button>
-
         </div>
     `;
 
