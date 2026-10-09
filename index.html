@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -19,9 +18,7 @@
     <link rel="manifest" href="manifest.json">
 
     <meta name="theme-color" content="#173F35">
-
 </head>
-
 
 <body>
 
@@ -30,13 +27,11 @@
     ========================================== -->
 
     <header class="app-header">
-
         <h1>📚 LET'S IMPROVE ENGLISH</h1>
 
         <p>
             Learn • Understand • Speak • Improve
         </p>
-
     </header>
 
 
@@ -47,7 +42,6 @@
     <main id="menu-screen" class="main-menu">
 
         <h2>Choose a Category</h2>
-
 
         <!-- CATEGORY 1 -->
 
@@ -87,7 +81,7 @@
             <span class="number">3</span>
 
             <span class="category-text">
-                <strong>Synonyms & Antonyms</strong>
+                <strong>Synonyms &amp; Antonyms</strong>
                 <small>Improve your vocabulary</small>
             </span>
 
@@ -109,42 +103,12 @@
         </button>
 
 
-        <!-- CATEGORY 5 -->
-
-        <button class="category-btn"
-                onclick="openCategory(5)">
-
-            <span class="number">5</span>
-
-            <span class="category-text">
-                <strong>Daily-Use Sentences</strong>
-                <small>English for everyday life</small>
-            </span>
-
-        </button>
-
-
-        <!-- CATEGORY 6 -->
-
-        <button class="category-btn"
-                onclick="openCategory(6)">
-
-            <span class="number">6</span>
-
-            <span class="category-text">
-                <strong>Simple Modals</strong>
-                <small>Can • Could • May • Must • Should</small>
-            </span>
-
-        </button>
-
-
-        <!-- CATEGORY 7 -->
+        <!-- CATEGORY 5: PRONUNCIATION -->
 
         <button class="category-btn"
                 onclick="openCategory(7)">
 
-            <span class="number">7</span>
+            <span class="number">5</span>
 
             <span class="category-text">
                 <strong>Pronunciation Practice</strong>
@@ -166,11 +130,8 @@
 
         <button class="back-btn"
                 onclick="backToCategories()">
-
             ← BACK
-
         </button>
-
 
         <h2 id="category-title"></h2>
 
@@ -186,13 +147,12 @@
              style="display:none;">
 
             <h3 class="part3-heading">
-                SYNONYMS & ANTONYMS
+                SYNONYMS &amp; ANTONYMS
             </h3>
 
             <p class="part3-intro">
                 Improve your vocabulary
             </p>
-
 
             <!-- WORD CONTENT WILL BE ADDED NEXT -->
 
@@ -206,7 +166,6 @@
     ========================================== -->
 
     <footer>
-
         <p>
             Learn English • Speak English • Improve English
         </p>
@@ -214,14 +173,14 @@
         <p>
             © LET'S IMPROVE ENGLISH
         </p>
-
     </footer>
 
 
     <!-- =========================================
          JAVASCRIPT
     ========================================== -->
-<script src="patterns.js"></script>
+
+    <script src="patterns.js"></script>
     <script src="script.js"></script>
 
 
@@ -230,7 +189,6 @@
     ========================================== -->
 
     <script>
-
         if ("serviceWorker" in navigator) {
 
             window.addEventListener("load", function () {
@@ -257,9 +215,7 @@
             });
 
         }
-
     </script>
-
 
 </body>
 </html>
